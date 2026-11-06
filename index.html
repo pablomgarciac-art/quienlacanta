@@ -233,6 +233,9 @@ button{font-family:inherit;touch-action:manipulation;-webkit-tap-highlight-color
   background:var(--paper);font:800 13px/1.1 var(--body);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;
 }
 .pill{min-width:0;max-width:calc(100% - 110px);overflow:hidden;text-overflow:ellipsis;display:block;line-height:1.4}
+.pill{text-align:center;line-height:1.15}
+.pill .pmain{white-space:nowrap}
+.pill .psub{white-space:nowrap;display:block;font-size:.72em;letter-spacing:.04em;opacity:.8;margin-top:1px}
 .pill b{font-weight:800;color:var(--blue-deep)}
 .board{display:flex;gap:10px;overflow-x:auto;padding:4px 2px 12px;margin-bottom:4px;scrollbar-width:thin}
 .chip{
@@ -450,14 +453,15 @@ button{font-family:inherit;touch-action:manipulation;-webkit-tap-highlight-color
   body[data-screen="game"] .wrap{padding-top:max(8px,env(safe-area-inset-top));padding-bottom:max(10px,env(safe-area-inset-bottom))}
   body[data-screen="game"] .foot,body[data-screen="cover"] .foot{display:none}
   body[data-screen="game"] .topbar{margin-bottom:8px}
-  body[data-screen="game"] .ghost{min-height:46px;padding:8px 16px;font-size:17px;border-radius:14px;gap:9px}
-  body[data-screen="game"] .ghost svg{width:21px;height:21px}
-  body[data-screen="game"] .pill{min-height:44px;padding:6px 16px;font-size:14.5px;letter-spacing:.05em}
+  body[data-screen="game"] .ghost{min-height:52px;padding:8px 18px;font-size:19px;border-radius:15px;gap:10px}
+  body[data-screen="game"] .ghost svg{width:23px;height:23px}
+  body[data-screen="game"] .pill{min-height:52px;padding:5px 16px;font-size:17px;letter-spacing:.04em;display:flex;flex-direction:column;justify-content:center;max-width:none}
   body[data-screen="game"] .board{padding:2px 2px 8px;gap:8px;margin-bottom:0}
-  body[data-screen="game"] .chip{min-width:108px;padding:5px 12px 7px;border-radius:12px;border-width:2.5px}
-  body[data-screen="game"] .chip .n{font-size:15px;max-width:150px}
-  body[data-screen="game"] .chip .n i{width:13px;height:13px}
-  body[data-screen="game"] .chip .s{font-size:27px}
+  body[data-screen="game"] .chip{min-width:124px;padding:6px 14px 8px;border-radius:14px;border-width:3px}
+  body[data-screen="game"] .chip .n{font-size:18px;max-width:170px;gap:8px}
+  body[data-screen="game"] .chip .n i{width:15px;height:15px}
+  body[data-screen="game"] .chip .s{font-size:32px}
+  body[data-screen="game"] .chip .k{font-size:11px}
   body[data-screen="game"] .chip .k{font-size:10px;min-height:0}
   body[data-screen="game"] .chip.active{transform:none}
   body[data-screen="game"] .card.stage{padding:10px 14px 16px;border-radius:18px}
@@ -465,19 +469,19 @@ button{font-family:inherit;touch-action:manipulation;-webkit-tap-highlight-color
   .stage .who{margin:2px 0 0;gap:10px}
   .stage .who .avatar{width:32px;height:32px;font-size:14px;border-width:2.5px;box-shadow:0 2px 0 var(--ink)}
   .stage .player{font-size:clamp(22px,6.4vw,26px)}
-  .stage .deck{--d:min(58vw,250px,27vh);--d:min(58vw,250px,27svh);margin:12px auto 6px}
-  .stage .status{margin-top:10px;font-size:clamp(19px,5.6vw,23px);min-height:1.3em;line-height:1.2}
+  .stage .deck{--d:min(56vw,250px,24vh);--d:min(56vw,250px,24svh);margin:10px auto 4px}
+  .stage .status{margin-top:6px;font-size:clamp(19px,5.6vw,23px);min-height:1.3em;line-height:1.2}
   .stage .replay{margin-top:8px;min-height:44px;font-size:14px;padding:6px 16px 6px 10px;gap:8px}
   .stage .replay .rp-ico{width:44px;height:44px}
-  .stage .options{gap:8px;margin-top:10px}
-  .stage .opt{padding:11px 16px;min-height:48px;font-size:17px;border-radius:14px;box-shadow:0 4px 0 var(--ink)}
+  .stage .options{gap:7px;margin-top:8px}
+  .stage .opt{padding:9px 16px;min-height:46px;font-size:17px;border-radius:14px;box-shadow:0 4px 0 var(--ink)}
   .stage .result{margin-top:12px;padding-top:10px}
   .stage .verdict{font-size:26px}
   .stage .points{font-size:28px;margin-top:4px}
   .stage .breakdown{font-size:12.5px;margin-top:3px}
   .stage .song{margin:8px 0 10px;font-size:15px}
   .stage .btn{padding:13px 16px;font-size:18px}
-  #game.res .deck{--d:min(34vw,130px,15vh);--d:min(34vw,130px,15svh);margin:8px auto 4px}
+  #game.res .deck{--d:min(30vw,110px,12vh);--d:min(30vw,110px,12svh);margin:6px auto 2px}
   #game.res .status{display:none}
 }
 @media (min-width:820px){
@@ -620,13 +624,15 @@ button{font-family:inherit;touch-action:manipulation;-webkit-tap-highlight-color
   .tile.lvl:not(.mode .tile),.era:not(.mix){flex-direction:column;align-items:flex-start;gap:6px;padding:12px 12px 12px}
   .grid:not(.mode) .tile.lvl .eico,.era:not(.mix) .eico{width:46px;height:46px}
   .grid:not(.mode) .tile.lvl .etx{width:100%}
-  .grid:not(.mode) .tile.lvl .big{font-size:21px;line-height:1.1;white-space:nowrap}
+  .grid:not(.mode) .tile.lvl .big{font-size:clamp(15px,5vw,20px);line-height:1.1;white-space:nowrap}
   .grid:not(.mode) .tile.lvl b{font-size:17px}
   .era:not(.mix) .etx{width:100%}
-  .era:not(.mix) .yr{font-size:22px;line-height:1.05;overflow-wrap:anywhere}
+  .era:not(.mix) .yr{font-size:clamp(14px,4.6vw,21px);line-height:1.05;white-space:nowrap}
+  .era:not(.mix){padding:12px 10px}
+  .era .etx small{font-size:12.5px;white-space:nowrap}
   .era .etx small,.tile.lvl small{font-size:13px}
 }
-@media (max-width:340px){body[data-screen="game"] .pill{font-size:12.5px;padding:6px 10px;letter-spacing:.02em}body[data-screen="game"] .ghost{padding:8px 12px;font-size:15px}}
+@media (max-width:340px){body[data-screen="game"] .pill{font-size:14.5px;padding:5px 10px;letter-spacing:.01em}body[data-screen="game"] .ghost{padding:8px 12px;font-size:16px}}
 @media (max-width:370px){
   .wrap{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}
   .panel{padding:14px 12px 16px}
@@ -1762,7 +1768,7 @@ async function startTurn(){
   var p=game.players[game.cur];
   $('#playerName').textContent=p.name;
   var av=$('#whoAvatar');av.textContent=initial(p.name);av.style.background=PCOLORS[game.cur%PCOLORS.length];
-  $('#turnCount').innerHTML='Canción <b>'+(game.turn+1)+'/'+game.total+'</b> · '+fmtSec(game.clip)+' s';
+  $('#turnCount').innerHTML='<span class="pmain">Canción <b>'+(game.turn+1)+'/'+game.total+'</b></span><span class="psub">'+game.lvl.name+' · '+fmtSec(game.clip)+' s</span>';
   renderBoard();
   resetStage();
   setPhase('fetching');
