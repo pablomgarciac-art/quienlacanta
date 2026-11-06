@@ -70,8 +70,11 @@ button{font-family:inherit;touch-action:manipulation;-webkit-tap-highlight-color
   padding-left:max(16px,env(safe-area-inset-left));
   padding-right:max(16px,env(safe-area-inset-right));
 }
-:focus-visible{outline:3px solid #fff;outline-offset:3px}
+:focus-visible{outline:4px solid #fff;outline-offset:4px}
+.btn:focus-visible,.opt:focus-visible,.tile:focus-visible,.ghost:focus-visible,.replay:focus-visible{outline:5px solid #fff;outline-offset:3px;box-shadow:0 0 0 8px var(--ink),0 6px 0 8px var(--ink)}
+.vinyl:focus-visible{outline:6px solid #fff;outline-offset:8px}
 .panel :focus-visible,.card :focus-visible,.sheet :focus-visible{outline-color:var(--blue)}
+.card .vinyl:focus-visible{outline-color:var(--blue)}
 
 /* ---------- Botones ---------- */
 .btn{
@@ -410,6 +413,11 @@ button{font-family:inherit;touch-action:manipulation;-webkit-tap-highlight-color
 .empty{margin:0;text-align:center;font-weight:700;color:var(--muted);padding:10px 0}
 .sheet .row-toggle{display:flex;width:100%;justify-content:space-between;align-items:center;margin-top:16px;padding:12px 4px 0;background:none;border:0;border-top:3px dashed rgba(15,18,51,.3);font:800 16px var(--body);color:var(--ink);cursor:pointer}
 
+.modal.share{z-index:70}
+.sh-sub{margin:-6px 0 14px;font-weight:700;color:var(--muted);text-align:center}
+.qr{width:min(70vw,260px,34vh);margin:0 auto 14px;padding:10px;background:#fff;border:3px solid var(--ink);border-radius:18px;box-shadow:0 5px 0 var(--ink)}
+.qr svg{display:block;width:100%;height:auto;shape-rendering:crispEdges}
+.sh-url{margin:0 0 14px;text-align:center;font:800 14px/1.3 var(--body);color:var(--blue-deep);overflow-wrap:anywhere}
 .foot{margin:22px 4px 0;text-align:center;font-size:12.5px;line-height:1.45;color:rgba(255,255,255,.82)}
 .warn-box{margin:0 0 16px;padding:11px 14px;background:#ffe1e7;border:3px solid var(--ink);border-radius:14px;font-weight:700;font-size:14px;line-height:1.4}
 
@@ -514,6 +522,8 @@ button{font-family:inherit;touch-action:manipulation;-webkit-tap-highlight-color
   .recs .w{font-size:19px}
   .recs .sc{font-size:26px}
   .sheet .btn{font-size:23px}
+  .qr{width:min(300px,38vh)}
+  .sh-url{font-size:17px}
   .tile.lvl .eico{width:84px;height:84px;border-radius:22px}
   .mode .tile.lvl .eico{width:64px;height:64px}
   .tile.lvl{padding:16px 18px}
@@ -678,7 +688,7 @@ button{font-family:inherit;touch-action:manipulation;-webkit-tap-highlight-color
         <button type="button" id="howBtn" class="btn alt">Cómo se juega</button>
         <button type="button" id="recBtn" class="btn alt">Récords</button>
       </div>
-      <button type="button" id="exitBtn" class="btn alt exit">Salir</button>
+      <div class="duo"><button type="button" id="shareBtn" class="btn alt exit">Compartir</button><button type="button" id="exitBtn" class="btn alt exit">Salir</button></div>
     </div>
     <p class="count" id="songCount"></p>
   </section>
@@ -820,7 +830,21 @@ button{font-family:inherit;touch-action:manipulation;-webkit-tap-highlight-color
     <button type="button" class="btn alt" id="mRestart">Reiniciar partida</button>
     <button type="button" class="btn alt" id="mSettings">Ajustes de partida</button>
     <button type="button" class="btn alt" id="mHome">Ir a la portada</button>
+    <button type="button" class="btn alt" id="mShare">Compartir</button>
     <button type="button" class="row-toggle" id="mSfx" role="switch" aria-checked="true"><span>Efectos de sonido</span><b id="mSfxVal">Sí</b></button>
+  </div>
+</div>
+
+<!-- COMPARTIR -->
+<div class="modal share" id="share" hidden role="dialog" aria-modal="true" aria-labelledby="shTitle">
+  <div class="sheet">
+    <h2 id="shTitle">Compartir</h2>
+    <p class="sh-sub">Escanea el código con la cámara del móvil y juega.</p>
+    <div class="qr"><svg aria-label="Código QR para abrir el juego" role="img" xmlns="http://www.w3.org/2000/svg" class="segno"><g transform="scale(10)"><path fill="#fff" d="M0 0h37v37h-37z"/><path class="qrline" stroke="#0f1233" d="M2 2.5h7m3 0h4m2 0h4m1 0h1m1 0h1m2 0h7m-33 1h1m5 0h1m2 0h2m1 0h4m1 0h1m2 0h2m4 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h1m1 0h5m1 0h3m2 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h1m3 0h3m3 0h1m1 0h3m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h6m1 0h1m1 0h2m4 0h1m2 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m1 0h3m4 0h2m3 0h3m3 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-25 1h1m2 0h2m2 0h1m5 0h4m-25 1h1m1 0h5m3 0h2m1 0h5m4 0h1m1 0h1m1 0h5m-29 1h1m1 0h2m1 0h1m1 0h1m4 0h1m1 0h1m1 0h3m2 0h1m2 0h2m1 0h2m1 0h1m-32 1h3m1 0h2m1 0h3m4 0h2m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h2m-31 1h5m1 0h1m3 0h1m2 0h2m5 0h1m3 0h1m2 0h3m1 0h1m-33 1h4m1 0h2m4 0h2m5 0h1m3 0h4m1 0h3m1 0h2m-33 1h1m1 0h1m4 0h3m3 0h4m3 0h4m2 0h1m4 0h2m-33 1h2m1 0h2m1 0h1m1 0h1m2 0h1m1 0h2m3 0h2m2 0h1m2 0h2m2 0h3m-30 1h4m2 0h6m2 0h1m2 0h4m1 0h3m2 0h2m-30 1h3m2 0h3m1 0h2m1 0h2m2 0h1m1 0h1m2 0h1m1 0h2m1 0h2m3 0h1m-33 1h2m2 0h2m2 0h2m1 0h2m1 0h1m1 0h2m1 0h3m1 0h1m1 0h3m1 0h2m1 0h1m-33 1h3m3 0h1m2 0h1m4 0h4m2 0h3m1 0h2m1 0h2m1 0h1m-30 1h5m1 0h1m2 0h2m2 0h1m1 0h3m2 0h1m1 0h3m1 0h4m1 0h1m-31 1h2m1 0h2m5 0h1m2 0h2m2 0h1m2 0h1m1 0h2m2 0h2m-30 1h4m3 0h5m2 0h2m2 0h1m2 0h1m1 0h1m2 0h1m2 0h1m2 0h1m-33 1h1m2 0h4m1 0h1m2 0h2m2 0h4m2 0h1m2 0h1m4 0h1m1 0h1m-32 1h1m9 0h2m1 0h1m1 0h1m2 0h1m2 0h2m4 0h1m2 0h2m-32 1h1m1 0h3m1 0h1m1 0h8m1 0h1m4 0h7m-21 1h2m2 0h2m2 0h1m2 0h4m1 0h1m3 0h1m1 0h1m1 0h1m-33 1h7m2 0h1m2 0h2m1 0h1m2 0h1m1 0h2m1 0h2m1 0h1m1 0h1m1 0h2m-32 1h1m5 0h1m1 0h3m1 0h2m2 0h1m2 0h1m1 0h4m3 0h4m-32 1h1m1 0h3m1 0h1m1 0h2m1 0h2m5 0h1m5 0h6m1 0h1m-32 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h3m4 0h1m1 0h3m2 0h2m1 0h2m-33 1h1m1 0h3m1 0h1m1 0h3m9 0h1m3 0h1m1 0h2m1 0h1m-30 1h1m5 0h1m2 0h2m1 0h1m1 0h1m1 0h1m1 0h4m3 0h2m1 0h3m-31 1h7m1 0h1m1 0h1m2 0h2m2 0h3m2 0h3m1 0h2m1 0h1m1 0h1"/></g></svg></div>
+    <p class="sh-url" id="shUrl"></p>
+    <button type="button" class="btn" id="shCopy">Copiar enlace</button>
+    <button type="button" class="btn alt" id="shNative" hidden>Compartir con…</button>
+    <button type="button" class="link-btn" id="shClose">Cerrar</button>
   </div>
 </div>
 
@@ -831,6 +855,7 @@ button{font-family:inherit;touch-action:manipulation;-webkit-tap-highlight-color
     <button type="button" class="btn" id="smBack">Volver a la portada</button>
     <button type="button" class="btn alt" id="smHow">Cómo se juega</button>
     <button type="button" class="btn alt" id="smRec">Récords</button>
+    <button type="button" class="btn alt" id="smShare">Compartir</button>
     <button type="button" class="btn alt" id="smExit">Salir</button>
     <button type="button" class="link-btn" data-close>Cerrar</button>
   </div>
@@ -1632,11 +1657,15 @@ $('#vinyl').innerHTML=discHTML(2);
 var g=null,clipTimer=null,armed=null,armTimer=null;
 
 /* ---------- pantallas ---------- */
+var usingKeys=false;
+document.addEventListener('keydown',function(){usingKeys=true;},true);
+document.addEventListener('pointerdown',function(){usingKeys=false;},true);
 function show(id){
   ['cover','setup','game','end','bye'].forEach(function(s){$('#'+s).hidden=(s!==id);});
   document.body.setAttribute('data-screen',id);
   window.scrollTo(0,0);
   syncMusic();
+  if(usingKeys)setTimeout(focusMain,60);
 }
 function quitGame(){
   clearTimeout(clipTimer);clipTimer=null;
@@ -1852,6 +1881,7 @@ function setPhase(p){
   $('#errHelp').hidden=(p!=='error');
   $('#game').classList.toggle('res',p==='result');
   syncMusic();
+  if(usingKeys&&!(g&&g.menuOpen))setTimeout(focusMain,60);
 }
 
 /* ---------- reproducción del fragmento ---------- */
@@ -2173,7 +2203,98 @@ document.addEventListener('keydown',function(e){
   if(e.key!=='Escape')return;
   if(!$('#menu').hidden)closeMenu();
   else if(!$('#how').hidden||!$('#records').hidden||!$('#smenu').hidden)closeModals();
+  else if(!$('#share').hidden)closeShare();
+  else if(!$('#game').hidden&&g)openMenu();
 });
+
+
+/* ---------- compartir ---------- */
+var SHARE_URL='https://pablomgarciac-art.github.io/quienlacanta/';
+$('#shUrl').textContent=SHARE_URL.replace(/^https:\/\//,'');
+function openShare(){
+  $('#share').hidden=false;
+  $('#shCopy').textContent='Copiar enlace';
+  try{$('#shCopy').focus({preventScroll:true});}catch(e){}
+}
+function closeShare(){$('#share').hidden=true;}
+$('#shareBtn').addEventListener('click',openShare);
+$('#smShare').addEventListener('click',openShare);
+$('#mShare').addEventListener('click',openShare);
+$('#shClose').addEventListener('click',closeShare);
+$('#share').addEventListener('click',function(e){if(e.target===this)closeShare();});
+$('#shCopy').addEventListener('click',function(){
+  var b=this,ok=function(){b.textContent='¡Copiado!';setTimeout(function(){b.textContent='Copiar enlace';},1800);};
+  try{
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(SHARE_URL).then(ok,function(){b.textContent=SHARE_URL;});return;}
+  }catch(e){}
+  try{var t=document.createElement('textarea');t.value=SHARE_URL;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);ok();}catch(e){b.textContent=SHARE_URL;}
+});
+if(navigator.share){
+  $('#shNative').hidden=false;
+  $('#shNative').addEventListener('click',function(){navigator.share({title:'Quién la canta',text:'Suena un trocito de un temazo. ¿Sabes quién lo canta?',url:SHARE_URL}).catch(function(){});});
+}
+
+/* ---------- mando de la tele / teclado: flechas, OK y atrás ---------- */
+function focusables(){
+  var root=null,mods=['share','menu','how','records','smenu'];
+  for(var i=0;i<mods.length;i++){var m=$('#'+mods[i]);if(!m.hidden){root=m;break;}}
+  if(!root)root=document;
+  return Array.prototype.filter.call(root.querySelectorAll('button:not([disabled]),input,[tabindex="0"]'),function(e){
+    var r=e.getBoundingClientRect();return r.width>0&&r.height>0&&getComputedStyle(e).visibility!=='hidden';
+  });
+}
+function moveFocus(dir){
+  var list=focusables(),cur=document.activeElement;
+  if(!cur||list.indexOf(cur)<0){
+    var inModal=!!document.querySelector('.modal:not([hidden])');
+    if(!inModal){focusMain();if(document.activeElement&&list.indexOf(document.activeElement)>-1)return;}
+    if(list[0])list[0].focus();return;
+  }
+  var c=cur.getBoundingClientRect(),cx=c.left+c.width/2,cy=c.top+c.height/2,best=null,bs=1e9;
+  list.forEach(function(e){
+    if(e===cur)return;
+    var r=e.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2,dx=x-cx,dy=y-cy,ok,prim,sec;
+    if(dir==='ArrowRight'){ok=dx>4;prim=dx;sec=Math.abs(dy);}
+    else if(dir==='ArrowLeft'){ok=dx<-4;prim=-dx;sec=Math.abs(dy);}
+    else if(dir==='ArrowDown'){ok=dy>4;prim=dy;sec=Math.abs(dx);}
+    else{ok=dy<-4;prim=-dy;sec=Math.abs(dx);}
+    if(!ok)return;
+    var s=prim+sec*2.2;
+    if(s<bs){bs=s;best=e;}
+  });
+  if(best){best.focus();try{best.scrollIntoView({block:'nearest',inline:'nearest'});}catch(e){}}
+}
+document.addEventListener('keydown',function(e){
+  var k=e.key,tag=(document.activeElement&&document.activeElement.tagName)||'';
+  if(k==='ArrowUp'||k==='ArrowDown'||k==='ArrowLeft'||k==='ArrowRight'){
+    if(tag==='INPUT'&&(k==='ArrowLeft'||k==='ArrowRight'))return;
+    e.preventDefault();moveFocus(k);return;
+  }
+  /* botón Atrás del mando (Android TV, Tizen, webOS) */
+  if(k==='GoBack'||k==='BrowserBack'||e.keyCode===10009||e.keyCode===461||e.keyCode===4){
+    e.preventDefault();
+    if(!$('#share').hidden)closeShare();
+    else if(!$('#menu').hidden)closeMenu();
+    else if(!$('#how').hidden||!$('#records').hidden||!$('#smenu').hidden)closeModals();
+    else if(!$('#game').hidden)openMenu();
+    else if(!$('#setup').hidden)openModal('smenu');
+  }
+});
+/* deja siempre un botón con el foco para poder usar el mando sin ratón */
+function focusMain(){
+  var t=null;
+  if(!$('#cover').hidden)t=$('#playBtn');
+  else if(!$('#setup').hidden)t=$('#startBtn');
+  else if(!$('#end').hidden)t=$('#againBtn');
+  else if(!$('#bye').hidden)t=$('#byeBack');
+  else if(!$('#game').hidden&&g){
+    if(g.phase==='ready')t=$('#vinyl');
+    else if(g.phase==='choose'){t=$('#options .opt');}
+    else if(g.phase==='result')t=$('#nextBtn');
+    else if(g.phase==='error'||g.phase==='empty')t=$('#retry');
+  }
+  if(t&&!t.disabled&&getComputedStyle(t).display!=='none'){try{t.focus({preventScroll:true});}catch(e){}}
+}
 
 /* ---------- arranque ---------- */
 $('#songCount').textContent='Más de '+(Math.floor(SONGS.length/50)*50)+' canciones · de los 80 hasta hoy';
