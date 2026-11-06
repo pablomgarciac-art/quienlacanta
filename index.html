@@ -449,23 +449,24 @@ button{font-family:inherit;touch-action:manipulation;-webkit-tap-highlight-color
 @media (max-width:819px){
   body[data-screen="game"] .wrap{padding-top:max(8px,env(safe-area-inset-top));padding-bottom:max(10px,env(safe-area-inset-bottom))}
   body[data-screen="game"] .foot,body[data-screen="cover"] .foot{display:none}
-  body[data-screen="game"] .topbar{margin-bottom:6px}
-  body[data-screen="game"] .ghost{min-height:40px;padding:6px 12px;font-size:14px;border-radius:12px}
-  body[data-screen="game"] .ghost svg{width:18px;height:18px}
-  body[data-screen="game"] .pill{min-height:36px;padding:5px 12px;font-size:12px}
+  body[data-screen="game"] .topbar{margin-bottom:8px}
+  body[data-screen="game"] .ghost{min-height:46px;padding:8px 16px;font-size:17px;border-radius:14px;gap:9px}
+  body[data-screen="game"] .ghost svg{width:21px;height:21px}
+  body[data-screen="game"] .pill{min-height:44px;padding:6px 16px;font-size:14.5px;letter-spacing:.05em}
   body[data-screen="game"] .board{padding:2px 2px 8px;gap:8px;margin-bottom:0}
-  body[data-screen="game"] .chip{min-width:92px;padding:4px 10px 6px;border-radius:12px;border-width:2.5px}
-  body[data-screen="game"] .chip .n{font-size:12px}
-  body[data-screen="game"] .chip .s{font-size:20px}
+  body[data-screen="game"] .chip{min-width:108px;padding:5px 12px 7px;border-radius:12px;border-width:2.5px}
+  body[data-screen="game"] .chip .n{font-size:15px;max-width:150px}
+  body[data-screen="game"] .chip .n i{width:13px;height:13px}
+  body[data-screen="game"] .chip .s{font-size:27px}
   body[data-screen="game"] .chip .k{font-size:10px;min-height:0}
   body[data-screen="game"] .chip.active{transform:none}
   body[data-screen="game"] .card.stage{padding:10px 14px 16px;border-radius:18px}
-  .stage .turn-of{font-size:11px;letter-spacing:.12em}
+  .stage .turn-of{font-size:12px;letter-spacing:.12em}
   .stage .who{margin:2px 0 0;gap:10px}
   .stage .who .avatar{width:32px;height:32px;font-size:14px;border-width:2.5px;box-shadow:0 2px 0 var(--ink)}
-  .stage .player{font-size:clamp(20px,6vw,24px)}
-  .stage .deck{--d:min(60vw,250px,29vh);--d:min(60vw,250px,29svh);margin:14px auto 8px}
-  .stage .status{margin-top:10px;font-size:16px;min-height:1.3em}
+  .stage .player{font-size:clamp(22px,6.4vw,26px)}
+  .stage .deck{--d:min(58vw,250px,27vh);--d:min(58vw,250px,27svh);margin:12px auto 6px}
+  .stage .status{margin-top:10px;font-size:clamp(19px,5.6vw,23px);min-height:1.3em;line-height:1.2}
   .stage .replay{margin-top:8px;min-height:44px;font-size:14px;padding:6px 16px 6px 10px;gap:8px}
   .stage .replay .rp-ico{width:44px;height:44px}
   .stage .options{gap:8px;margin-top:10px}
@@ -614,7 +615,18 @@ button{font-family:inherit;touch-action:manipulation;-webkit-tap-highlight-color
   .stage .opt{font-size:21px;padding:18px 20px}
   .side:not(:has(.options:not([hidden]))):not(:has(.result:not([hidden]))){visibility:hidden}
 }
-@media (max-width:520px){.grid.two.mode{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:520px){
+  .grid.two.mode{grid-template-columns:minmax(0,1fr)}
+  .tile.lvl:not(.mode .tile),.era:not(.mix){flex-direction:column;align-items:flex-start;gap:6px;padding:12px 12px 12px}
+  .grid:not(.mode) .tile.lvl .eico,.era:not(.mix) .eico{width:46px;height:46px}
+  .grid:not(.mode) .tile.lvl .etx{width:100%}
+  .grid:not(.mode) .tile.lvl .big{font-size:21px;line-height:1.1;white-space:nowrap}
+  .grid:not(.mode) .tile.lvl b{font-size:17px}
+  .era:not(.mix) .etx{width:100%}
+  .era:not(.mix) .yr{font-size:22px;line-height:1.05;overflow-wrap:anywhere}
+  .era .etx small,.tile.lvl small{font-size:13px}
+}
+@media (max-width:340px){body[data-screen="game"] .pill{font-size:12.5px;padding:6px 10px;letter-spacing:.02em}body[data-screen="game"] .ghost{padding:8px 12px;font-size:15px}}
 @media (max-width:370px){
   .wrap{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}
   .panel{padding:14px 12px 16px}
