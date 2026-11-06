@@ -1,0 +1,2131 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2b3df0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Quién la canta">
+<title>Quién la canta</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E %3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%233a52ff%22/%3E%3Cstop offset=%221%22 stop-color=%22%231a24b8%22/%3E%3C/linearGradient%3E%3C/defs%3E %3Crect width=%2264%22 height=%2264%22 rx=%2215%22 fill=%22url(%23g)%22/%3E %3Ccircle cx=%2232%22 cy=%2233%22 r=%2225%22 fill=%22%230f1233%22/%3E %3Ccircle cx=%2232%22 cy=%2233%22 r=%2219.500%22 fill=%22none%22 stroke=%22%232c3270%22 stroke-width=%221.500%22/%3E %3Ccircle cx=%2232%22 cy=%2233%22 r=%2215%22 fill=%22none%22 stroke=%22%232c3270%22 stroke-width=%221.500%22/%3E %3Cpath d=%22M14 22a21 21 0 0 1 12-9%22 fill=%22none%22 stroke=%22%23fff%22 stroke-opacity=%22.35%22 stroke-width=%222.500%22 stroke-linecap=%22round%22/%3E %3Ccircle cx=%2232%22 cy=%2233%22 r=%2211.500%22 fill=%22%23ffd60a%22 stroke=%22%230f1233%22 stroke-width=%222.500%22/%3E %3Ccircle cx=%2232%22 cy=%2233%22 r=%224.200%22 fill=%22%23fff%22 stroke=%22%230f1233%22 stroke-width=%222%22/%3E %3Ccircle cx=%2232%22 cy=%2233%22 r=%221.300%22 fill=%22%230f1233%22/%3E %3Ccircle cx=%2249%22 cy=%2214%22 r=%229.500%22 fill=%22%23ff4d6d%22 stroke=%22%230f1233%22 stroke-width=%222.500%22/%3E %3Cpath d=%22M47 18.500v-8l6-1.400v7%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E %3Ccircle cx=%2245.500%22 cy=%2218.800%22 r=%222%22 fill=%22%23fff%22/%3E%3Ccircle cx=%2251.500%22 cy=%2217.400%22 r=%222%22 fill=%22%23fff%22/%3E %3C/svg%3E" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="description" content="Suena un trocito de un temazo. ¿Sabes quién lo canta? Juego musical para jugar con amigos.">
+<meta property="og:title" content="Quién la canta">
+<meta property="og:description" content="Suena un trocito de un temazo. ¿Sabes quién lo canta?">
+<meta property="og:image" content="icon-512.png">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Figtree:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+/* Concepto: funda de disco pop. Azul cobalto con trama de puntos, papel con borde grueso y sombra dura.
+   Lo vistoso: el título apilado de la portada y el vinilo con etiqueta de rayos que gira. */
+:root{
+  --blue:#2b3df0;
+  --blue-deep:#18218f;
+  --ink:#0f1233;
+  --paper:#f6f4ff;
+  --yellow:#ffd60a;
+  --orange:#ffb703;
+  --coral:#ff4d6d;
+  --mint:#1fd6a0;
+  --sky:#3ac8ff;
+  --muted:#575b8c;
+  --display:'Dela Gothic One','Arial Black',Impact,system-ui,sans-serif;
+  --body:'Figtree',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{color-scheme:light;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+[hidden]{display:none!important}
+html,body{overflow-x:clip}
+body{
+  margin:0;min-height:100vh;min-height:100dvh;
+  background-color:#1a24b8;
+  color:var(--ink);font:500 16px/1.45 var(--body);
+  -webkit-font-smoothing:antialiased;
+}
+body::before,body::after{content:"";position:fixed;left:0;top:0;right:0;bottom:0;pointer-events:none;z-index:-1}
+body::before{
+  background:
+    radial-gradient(70vmax 60vmax at 12% -8%,rgba(58,200,255,.38),transparent 60%),
+    radial-gradient(60vmax 55vmax at 100% 105%,rgba(255,77,109,.30),transparent 62%),
+    linear-gradient(165deg,#3447ff 0%,#2433d6 42%,#141b86 100%);
+}
+body::after{
+  background:
+    repeating-radial-gradient(circle at 76% 44%,rgba(255,255,255,.075) 0 1.5px,transparent 1.5px 34px),
+    repeating-radial-gradient(circle at 4% 96%,rgba(255,255,255,.06) 0 1.5px,transparent 1.5px 30px);
+  -webkit-mask-image:radial-gradient(circle at 76% 44%,#000 0,rgba(0,0,0,.55) 38%,transparent 72%),radial-gradient(circle at 4% 96%,#000 0,transparent 55%);
+  mask-image:radial-gradient(circle at 76% 44%,#000 0,rgba(0,0,0,.55) 38%,transparent 72%),radial-gradient(circle at 4% 96%,#000 0,transparent 55%);
+}
+button{font-family:inherit;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.wrap{
+  max-width:560px;margin:0 auto;
+  padding-top:max(14px,env(safe-area-inset-top));
+  padding-bottom:max(24px,env(safe-area-inset-bottom));
+  padding-left:max(16px,env(safe-area-inset-left));
+  padding-right:max(16px,env(safe-area-inset-right));
+}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.panel :focus-visible,.card :focus-visible,.sheet :focus-visible{outline-color:var(--blue)}
+
+/* ---------- Botones ---------- */
+.btn{
+  display:block;width:100%;border:3px solid var(--ink);border-radius:18px;background:var(--yellow);color:var(--ink);
+  font:400 21px/1.1 var(--display);padding:16px 20px;cursor:pointer;box-shadow:0 6px 0 var(--ink);
+  transition:transform .08s,box-shadow .08s;text-wrap:balance;text-align:center;
+}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 var(--ink)}
+.btn.alt{background:#fff;font-size:17px;padding:14px 16px}
+.btn.big{font-size:clamp(26px,8vw,34px);padding:18px 20px;display:flex;align-items:center;justify-content:center;gap:12px}
+.btn.big svg{width:28px;height:28px;flex:none}
+.btn.warn{background:var(--coral);color:#fff}
+.ghost{
+  display:inline-flex;align-items:center;gap:8px;border:3px solid var(--ink);border-radius:14px;background:#fff;color:var(--ink);
+  font:800 15px/1 var(--body);padding:10px 14px;cursor:pointer;box-shadow:0 3px 0 var(--ink);min-height:44px;
+}
+.ghost:active{transform:translateY(2px);box-shadow:0 1px 0 var(--ink)}
+.ghost svg{width:18px;height:18px;flex:none}
+.link-btn{
+  display:block;margin:12px auto 0;background:none;border:0;color:var(--blue-deep);
+  font:800 15px var(--body);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:8px 12px;min-height:40px;
+}
+
+/* ---------- Portada ---------- */
+#cover{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:6px}
+.corner{
+  position:absolute;right:0;top:0;width:46px;height:46px;border:3px solid var(--ink);border-radius:50%;background:#fff;
+  display:grid;place-items:center;cursor:pointer;box-shadow:0 3px 0 var(--ink);padding:0;
+}
+.corner svg{width:22px;height:22px}
+.corner[aria-pressed="false"] .wave{display:none}
+.corner[aria-pressed="true"] .mute{display:none}
+.corner::after{content:'♪';position:absolute;right:-6px;bottom:-8px;font:400 16px/1 var(--display);color:#fff;text-shadow:1px 1px 0 var(--ink)}
+.corner[aria-pressed="false"]::after{content:''}
+.stickers{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:calc(100% - 56px);margin:4px 0 18px}
+.stickers{gap:10px}
+.stk{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 8px;border:3px solid var(--ink);border-radius:16px;font:400 clamp(17px,5vw,22px)/1 var(--display);box-shadow:0 4px 0 var(--ink);color:var(--ink);background:var(--c)}
+.stk .si{flex:none;width:34px;height:34px;border-radius:11px;background:rgba(255,255,255,.65);padding:2px;display:grid;place-items:center}
+.stk .si svg{display:block;width:100%;height:100%}
+.stk:nth-child(1){transform:rotate(-5deg)}
+.stk:nth-child(2){transform:rotate(3deg)}
+.stk:nth-child(3){transform:rotate(-2deg)}
+.stk:nth-child(4){transform:rotate(4deg)}
+.stk{transition:transform .15s}
+.stk:hover{transform:rotate(0) scale(1.08)}
+.logo{
+  margin:0;display:flex;flex-direction:column;align-items:center;line-height:.9;text-transform:uppercase;
+  font:400 clamp(46px,14.5vw,84px)/.9 var(--display);transform:rotate(-3deg);
+}
+.logo span{display:block;text-shadow:4px 4px 0 var(--ink)}
+.logo .l1{color:#fff}
+.logo .l2{color:var(--coral);font-size:.6em;margin:.08em 0}
+.logo .l3{color:var(--yellow)}
+.hero{--d:min(56vw,230px,28vh);--d:min(56vw,230px,28svh);margin:18px auto 14px}
+.notes i{
+  position:absolute;font:400 34px/1 var(--display);font-style:normal;color:#fff;text-shadow:2px 2px 0 var(--ink);
+  animation:floaty 4.2s ease-in-out infinite;pointer-events:none;
+}
+.notes i:nth-child(1){left:-30%;top:8%;color:var(--yellow)}
+.notes i:nth-child(2){right:-28%;top:2%;animation-delay:-1.4s;color:var(--mint);font-size:42px}
+.notes i:nth-child(3){left:-22%;bottom:6%;animation-delay:-2.6s;color:var(--coral);font-size:28px}
+.notes i:nth-child(4){right:-24%;bottom:12%;animation-delay:-.7s;font-size:30px}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-14px) rotate(8deg)}}
+.tag{margin:6px 0 18px;font:800 clamp(17px,4.6vw,20px)/1.3 var(--body);color:#fff;text-shadow:0 2px 0 rgba(15,18,51,.55);text-wrap:balance}
+.cover-actions{width:100%;max-width:420px;display:grid;gap:14px}
+.btn.exit{background:transparent;color:#fff;border-color:#fff;box-shadow:0 4px 0 rgba(15,18,51,.6);font-size:16px;padding:11px 16px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.count{margin:16px 0 0;font:800 13px var(--body);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+
+/* ---------- Barras y títulos ---------- */
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.h-title{margin:0 0 14px;font:400 clamp(28px,8vw,38px)/1 var(--display);color:var(--yellow);text-shadow:3px 3px 0 var(--ink);text-transform:uppercase}
+
+/* ---------- Ajustes ---------- */
+.panel{background:var(--paper);border:3px solid var(--ink);border-radius:22px;box-shadow:0 6px 0 var(--ink);padding:16px 16px 18px;margin-bottom:18px}
+.ph{margin:0 0 14px;display:flex;align-items:center;gap:12px;font:400 clamp(23px,6.4vw,27px)/1.05 var(--display);letter-spacing:.01em;text-transform:uppercase}
+.ph i{flex:none;width:18px;height:18px;border:3px solid var(--ink);border-radius:50%;background:var(--c,var(--yellow))}
+.ph small{margin-left:auto;text-align:right;font:800 12.5px/1.2 var(--body);color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.players{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.prow{display:flex;gap:8px;min-width:0;align-items:center}
+.avatar{flex:none;width:46px;height:46px;border:3px solid var(--ink);border-radius:50%;display:grid;place-items:center;font:400 20px/1 var(--display);box-shadow:0 3px 0 var(--ink)}
+.prow input{
+  flex:1;min-width:0;font:700 17px var(--body);color:var(--ink);background:#fff;
+  border:3px solid var(--ink);border-radius:14px;padding:11px 14px;height:48px;
+}
+.prow input:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.icon-btn{
+  flex:none;width:46px;height:48px;border:3px solid var(--ink);border-radius:14px;background:#fff;color:var(--ink);
+  font:800 22px/1 var(--body);cursor:pointer;display:grid;place-items:center;padding:0;
+}
+.icon-btn:hover:not(:disabled){background:#ffe1e7}
+.icon-btn:disabled{opacity:.35;cursor:default}
+.add-player{
+  margin-top:12px;border:3px dashed var(--ink);border-radius:14px;background:transparent;color:var(--ink);
+  font:800 15px var(--body);padding:12px 14px;cursor:pointer;width:100%;min-height:46px;
+}
+.add-player:hover:not(:disabled){background:#fff}
+.add-player:disabled{opacity:.4;cursor:default}
+
+.grid{display:grid;gap:10px}
+.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tile{
+  position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;min-width:0;
+  padding:12px 14px;border:3px solid var(--ink);border-radius:16px;background:#fff;color:var(--ink);cursor:pointer;
+  box-shadow:0 4px 0 var(--ink);transition:transform .1s,box-shadow .1s,background .15s;
+}
+.tile:active{transform:translateY(2px);box-shadow:0 2px 0 var(--ink)}
+.tile[aria-checked="true"]{background:var(--c,var(--yellow));transform:translateY(-2px);box-shadow:0 6px 0 var(--ink)}
+.tile b{font:800 18px/1.15 var(--body);letter-spacing:-.005em}
+.tile.lvl .etx b{font-size:19px}
+.tile.lvl small{font-size:13px}
+.tile small{font:700 12.5px/1.3 var(--body);color:var(--muted)}
+.tile[aria-checked="true"] small{color:var(--ink)}
+.tile .big{font:400 26px/1.05 var(--display);font-variant-numeric:tabular-nums}
+.tile .tick{position:absolute;right:10px;top:10px;width:22px;height:22px;border-radius:50%;background:var(--ink);display:none;place-items:center}
+.tile .tick svg{width:12px;height:12px}
+.tile[aria-checked="true"] .tick{display:grid}
+.bars{display:flex;align-items:flex-end;gap:3px;height:22px;margin-bottom:4px}
+.bars i{width:6px;border-radius:2px;background:var(--ink);opacity:.18}
+.bars i:nth-child(1){height:30%}.bars i:nth-child(2){height:55%}.bars i:nth-child(3){height:78%}.bars i:nth-child(4){height:100%}
+.bars[data-n="1"] i:nth-child(-n+1),.bars[data-n="2"] i:nth-child(-n+2),.bars[data-n="3"] i:nth-child(-n+3),.bars[data-n="4"] i:nth-child(-n+4){opacity:1}
+.era .yr{font:400 28px/1 var(--display)}
+.era.mix{grid-column:1/-1;flex-direction:row;align-items:center;gap:12px;padding-right:44px}
+.era.mix .yr{font-size:24px}
+.era.mix .txt{display:grid;gap:1px}
+.era.mix[aria-checked="true"]{background:var(--ink);color:#fff}
+.era.mix[aria-checked="true"] small{color:rgba(255,255,255,.8)}
+.era.mix[aria-checked="true"] .tick{background:var(--yellow)}
+.era.mix[aria-checked="true"] .tick path{stroke:var(--ink)}
+.mode .tile.lvl .eico{width:56px;height:56px;padding:4px}
+.mode .ico{width:30px;height:30px;margin-bottom:4px}
+.stepper{display:flex;align-items:center;justify-content:center;gap:16px}
+.stepper button{
+  width:56px;height:56px;border:3px solid var(--ink);border-radius:16px;background:#fff;color:var(--ink);font:400 30px/1 var(--display);
+  cursor:pointer;box-shadow:0 4px 0 var(--ink);padding:0;display:grid;place-items:center;
+}
+.stepper button:active:not(:disabled){transform:translateY(3px);box-shadow:0 1px 0 var(--ink)}
+.stepper button:disabled{opacity:.35;cursor:default}
+.stepper output{min-width:2.2ch;text-align:center;font:400 48px/1 var(--display);font-variant-numeric:tabular-nums}
+.hint{margin:10px 0 0;text-align:center;font-size:13.5px;font-weight:700;color:var(--muted)}
+.switch-row{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.switch-row .t{font:800 18px var(--body)}
+.switch-row .t small{display:block;font-size:13px;color:var(--muted);font-weight:700}
+.switch{position:relative;flex:none;width:68px;height:38px;border:3px solid var(--ink);border-radius:999px;background:#fff;cursor:pointer;padding:0;transition:background .15s}
+.switch .knob{position:absolute;left:3px;top:3px;width:26px;height:26px;border-radius:50%;background:var(--ink);transition:transform .18s}
+.switch[aria-checked="true"]{background:var(--mint)}
+.switch[aria-checked="true"] .knob{transform:translateX(30px)}
+.actionbar{
+  position:sticky;bottom:0;z-index:5;margin:0 -16px;
+  padding:26px max(16px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));
+  background:linear-gradient(to top,#1d29c0 62%,rgba(29,41,192,0));
+}
+.summary{margin:0 0 10px;text-align:center;font:800 13.5px/1.3 var(--body);color:#fff;text-shadow:0 2px 0 rgba(15,18,51,.5)}
+
+/* ---------- Partida ---------- */
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.pill{
+  display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:7px 12px;border:3px solid var(--ink);border-radius:999px;
+  background:var(--paper);font:800 13px/1.1 var(--body);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;
+}
+.pill{min-width:0;max-width:calc(100% - 110px);overflow:hidden;text-overflow:ellipsis;display:block;line-height:1.4}
+.pill b{font-weight:800;color:var(--blue-deep)}
+.board{display:flex;gap:10px;overflow-x:auto;padding:4px 2px 12px;margin-bottom:4px;scrollbar-width:thin}
+.chip{
+  flex:none;min-width:104px;background:var(--paper);border:3px solid var(--ink);border-radius:14px;
+  padding:7px 12px 8px;display:grid;gap:1px;transition:transform .15s,background .15s;
+}
+.chip .n{display:flex;align-items:center;gap:7px;font:800 13px/1.2 var(--body);white-space:nowrap;max-width:140px}
+.chip .n i{flex:none;width:12px;height:12px;border:2px solid var(--ink);border-radius:50%;background:var(--c)}
+.chip .n span{overflow:hidden;text-overflow:ellipsis}
+.chip .s{font:400 24px/1.1 var(--display);font-variant-numeric:tabular-nums}
+.chip .k{font:800 11px/1 var(--body);color:var(--blue-deep);letter-spacing:.05em;text-transform:uppercase;min-height:11px}
+.chip.active{background:var(--yellow);transform:translateY(-3px);box-shadow:0 4px 0 var(--ink)}
+.chip.bump{animation:bump .5s ease}
+@keyframes bump{40%{transform:translateY(-3px) scale(1.08)}}
+
+.card{background:var(--paper);border:3px solid var(--ink);border-radius:22px;box-shadow:0 7px 0 var(--ink);padding:18px 16px 22px}
+.stage{text-align:center}
+.turn-of{margin:0;font:700 13px var(--body);color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.who{display:flex;align-items:center;justify-content:center;gap:12px;margin:6px 0 4px}
+.who .avatar{width:42px;height:42px;font-size:18px}
+.player{margin:0;font:400 clamp(24px,7.5vw,34px)/1.05 var(--display);overflow-wrap:anywhere;text-wrap:balance}
+
+/* Vinilo */
+.deck{--d:min(68vw,290px,36vh);--d:min(68vw,290px,36svh);position:relative;width:var(--d);height:var(--d);margin:22px auto 16px}
+.deck.hero{--d:min(56vw,230px,28vh);--d:min(56vw,230px,28svh);margin:18px auto 14px}
+.deck::before,.deck::after{
+  content:"";position:absolute;left:0;top:0;width:100%;height:100%;border-radius:50%;border:3px solid var(--blue);opacity:0;pointer-events:none;
+}
+.push{
+  position:absolute;right:-14px;top:-12px;z-index:3;display:none;padding:7px 12px;border:3px solid var(--ink);border-radius:999px;
+  background:var(--coral);color:#fff;font:400 16px/1 var(--display);text-transform:uppercase;box-shadow:0 3px 0 var(--ink);
+  pointer-events:none;transform:rotate(8deg);animation:nudge 1.1s ease-in-out infinite;
+}
+.push::after{content:"";position:absolute;left:14px;bottom:-9px;width:12px;height:12px;background:var(--coral);border-right:3px solid var(--ink);border-bottom:3px solid var(--ink);transform:rotate(45deg) skew(8deg,8deg)}
+.deck.ready .push{display:block}
+.deck.ready::before{animation:pulse 1.5s ease-out infinite}
+.deck.ready .vinyl .badge{animation:tap 1.1s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:rotate(8deg) translateY(0)}50%{transform:rotate(8deg) translateY(-5px)}}
+@keyframes tap{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
+.deck.playing::before{animation:pulse 1.6s ease-out infinite}
+.deck.playing::after{animation:pulse 1.6s ease-out .8s infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.32);opacity:0}}
+.ring{position:absolute;left:-11px;top:-11px;width:calc(100% + 22px);height:calc(100% + 22px);transform:rotate(-90deg);pointer-events:none}
+.ring circle{fill:none;stroke-width:2.6}
+.ring .bg{stroke:rgba(15,18,51,.14)}
+.ring .fg{stroke:var(--blue);stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100}
+.vinyl,.vwrap{position:absolute;left:0;top:0;width:100%;height:100%;margin:0;padding:0;border-radius:50%;display:block}
+.vinyl{-webkit-appearance:none;appearance:none;border:0;background:none;color:inherit;font:inherit;cursor:pointer}
+.vinyl:disabled{cursor:default}
+.vinyl:focus-visible{outline:4px solid var(--blue);outline-offset:8px}
+.disc{
+  position:absolute;left:0;top:0;width:100%;height:100%;border-radius:50%;
+  background:repeating-radial-gradient(circle at 50% 50%,#12142f 0 2px,#1d2148 2px 4px);
+  box-shadow:0 0 0 3px var(--ink),0 8px 0 3px var(--ink);
+}
+.disc::before{
+  content:"";position:absolute;left:0;top:0;width:100%;height:100%;border-radius:50%;
+  background:conic-gradient(from 0deg,transparent 0 16%,rgba(255,255,255,.17) 23%,transparent 30% 66%,rgba(255,255,255,.12) 73%,transparent 80% 100%);
+}
+.disc,.sun{animation:spin var(--spin,2.2s) linear infinite;animation-play-state:paused}
+.spin .disc,.spin .sun{animation-play-state:running}
+.hero{--spin:7s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.vinyl:not(:disabled):hover .disc{filter:brightness(1.25)}
+.vlabel{
+  position:absolute;left:29%;top:29%;width:42%;height:42%;border-radius:50%;border:3px solid var(--ink);
+  overflow:hidden;background:var(--orange);box-sizing:border-box;
+}
+.sun{
+  position:absolute;left:0;top:0;width:100%;height:100%;border-radius:50%;
+  background:repeating-conic-gradient(var(--yellow) 0 12deg,var(--orange) 12deg 24deg);
+}
+.ringtxt{position:absolute;left:0;top:0;width:100%;height:100%}
+.ringtxt text{font:400 8.4px var(--display);fill:var(--ink);letter-spacing:.02em}
+.vlabel .m-cover{display:none;position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover}
+.badge{
+  position:absolute;left:25%;top:25%;width:50%;height:50%;border-radius:50%;background:#fff;border:3px solid var(--ink);
+  display:flex;align-items:center;justify-content:center;box-sizing:border-box;
+}
+[data-m]{display:none}
+[data-mark="play"] .m-play{display:block}
+[data-mark="q"] .m-q{display:block}
+[data-mark="eq"] .m-eq{display:flex}
+[data-mark="load"] .m-load{display:block}
+[data-mark="cover"] .badge,[data-mark="cover"] .sun{display:none}
+[data-mark="cover"] .m-cover{display:block}
+.vinyl.revealed .vlabel::after{content:"";position:absolute;left:43%;top:43%;width:14%;height:14%;border-radius:50%;background:var(--ink);box-shadow:0 0 0 2px var(--paper);z-index:2}
+.m-play{width:52%;height:52%;margin-left:8%}
+.m-q{font:400 clamp(20px,6.5vw,30px)/1 var(--display);color:var(--ink)}
+.m-eq{align-items:flex-end;gap:3px;width:56%;height:50%}
+.m-eq i{flex:1;background:var(--ink);border-radius:3px;height:30%;animation:eq .8s ease-in-out infinite}
+.m-eq i:nth-child(2){animation-delay:-.25s;animation-duration:.95s}
+.m-eq i:nth-child(3){animation-delay:-.5s;animation-duration:.7s}
+.m-eq i:nth-child(4){animation-delay:-.1s;animation-duration:1.05s}
+@keyframes eq{0%,100%{height:22%}50%{height:100%}}
+.m-load{width:52%;height:52%;border-radius:50%;border:4px solid rgba(15,18,51,.2);border-top-color:var(--ink);animation:spin .8s linear infinite}
+
+.status{margin:22px 0 0;min-height:1.5em;font:800 17px var(--body);text-wrap:balance}
+.replay{display:inline-flex;align-items:center;gap:10px;margin:14px auto 0;padding:10px 20px 10px 14px;border:3px solid var(--ink);border-radius:999px;background:#fff;color:var(--ink);font:800 16px/1.1 var(--body);cursor:pointer;box-shadow:0 4px 0 var(--ink);min-height:48px}
+.replay[hidden]{display:none}
+.replay:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ink)}
+.replay .rp-ico{width:56px;height:56px;flex:none;display:block;margin:-2px 0 -2px 0}
+.replay .rp-ico svg{display:block;width:100%;height:100%;filter:drop-shadow(0 2px 0 rgba(15,18,51,.25))}
+.replay small{display:inline-block;margin-left:4px;padding:2px 8px;border-radius:999px;background:#ffe1e7;color:#c0143a;font:800 12.5px/1.3 var(--body)}
+.errhelp{margin:10px auto 0;max-width:34ch;font-size:13.5px;line-height:1.4;color:var(--muted);font-weight:700}
+.options{display:grid;gap:12px;margin-top:16px;text-align:left}
+.opt{
+  font:800 19px/1.2 var(--body);padding:16px 18px;border:3px solid var(--ink);border-radius:16px;background:#fff;color:var(--ink);
+  box-shadow:0 5px 0 var(--ink);cursor:pointer;transition:transform .08s,box-shadow .08s,background .15s,opacity .2s;min-height:58px;
+  overflow-wrap:anywhere;
+}
+.opt:not(:disabled):hover{background:#fff7c2}
+.opt:not(:disabled):active{transform:translateY(3px);box-shadow:0 2px 0 var(--ink)}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--mint)}
+.opt.wrong{background:var(--coral);color:#fff;animation:shake .45s}
+.opt.dim{opacity:.5}
+@keyframes shake{20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(4px)}}
+.result{margin-top:20px;padding-top:18px;border-top:3px dashed var(--ink)}
+.verdict{font:400 clamp(30px,9vw,42px)/1 var(--display);text-transform:uppercase}
+.verdict.ok{color:#08795a}
+.verdict.ko{color:#d1193d}
+.points{margin-top:8px;font:400 38px/1 var(--display);font-variant-numeric:tabular-nums}
+.breakdown{margin:6px 0 0;font-size:13.5px;color:var(--muted);font-weight:700}
+.song{margin:16px 0 18px;font-size:18px;line-height:1.3}
+.song b{font-weight:800}
+.song span{color:var(--muted);font-weight:700}
+
+/* ---------- Final ---------- */
+.winner{font:400 clamp(28px,8vw,38px)/1.05 var(--display);margin:6px 0 4px;text-wrap:balance;text-align:center}
+.sub{margin:0 0 14px;text-align:center;font-weight:700;color:var(--muted)}
+.newrec{display:block;width:max-content;max-width:100%;margin:0 auto 14px;padding:6px 14px;border:3px solid var(--ink);border-radius:999px;background:var(--coral);color:#fff;font:400 15px/1 var(--display);text-transform:uppercase;transform:rotate(-2deg)}
+.rank{list-style:none;margin:0 0 6px;padding:0;display:grid;gap:10px}
+.rank li{display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:10px;background:#fff;border:3px solid var(--ink);border-radius:16px;padding:10px 14px}
+.rank li:first-child{background:var(--yellow);box-shadow:0 4px 0 var(--ink)}
+.rank .pos{font:400 24px/1 var(--display)}
+.rank .nm{font-weight:800;font-size:18px;overflow-wrap:anywhere}
+.rank .nm small{display:block;font-weight:700;font-size:12.5px;color:var(--muted)}
+.rank li:first-child .nm small{color:var(--ink)}
+.rank .sc{font:400 26px/1 var(--display);font-variant-numeric:tabular-nums}
+.stack{display:grid;gap:14px;margin-top:18px}
+
+/* ---------- Modales ---------- */
+.modal{
+  position:fixed;left:0;top:0;right:0;bottom:0;z-index:60;display:flex;align-items:flex-end;justify-content:center;
+  background:rgba(15,18,51,.74);padding:16px;padding-bottom:max(16px,env(safe-area-inset-bottom));
+  padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right));overflow:auto;
+}
+.sheet{
+  width:100%;max-width:460px;max-height:88vh;max-height:88dvh;overflow:auto;background:var(--paper);border:3px solid var(--ink);
+  border-radius:22px;box-shadow:0 7px 0 var(--ink);padding:18px 18px 20px;animation:rise .2s ease-out;
+}
+@keyframes rise{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+.sheet h2{margin:0 0 14px;font:400 28px/1 var(--display);text-transform:uppercase}
+.sheet .btn{margin-top:12px}
+.sheet .btn:first-of-type{margin-top:0}
+.rules{margin:0;padding:0;list-style:none;display:grid;gap:10px;font-weight:700}
+.rules li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:start}
+.rules .n{width:30px;height:30px;border:3px solid var(--ink);border-radius:50%;background:var(--yellow);display:grid;place-items:center;font:400 15px/1 var(--display)}
+.ptable{width:100%;border-collapse:collapse;margin-top:14px;font-weight:700;font-size:14.5px}
+.ptable th,.ptable td{padding:7px 4px;border-bottom:2px dashed rgba(15,18,51,.25);text-align:left}
+.ptable th{font:800 11.5px var(--body);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.ptable td:last-child,.ptable th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.recs{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.recs li{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:10px;align-items:center;padding:9px 12px;border:3px solid var(--ink);border-radius:14px;background:#fff}
+.recs li:first-child{background:var(--yellow)}
+.recs .p{font:400 18px/1 var(--display)}
+.recs .w{font-weight:800;overflow-wrap:anywhere}
+.recs .w small{display:block;font-size:12px;color:var(--muted);font-weight:700}
+.recs li:first-child .w small{color:var(--ink)}
+.recs .sc{font:400 22px/1 var(--display);font-variant-numeric:tabular-nums}
+.empty{margin:0;text-align:center;font-weight:700;color:var(--muted);padding:10px 0}
+.sheet .row-toggle{display:flex;width:100%;justify-content:space-between;align-items:center;margin-top:16px;padding:12px 4px 0;background:none;border:0;border-top:3px dashed rgba(15,18,51,.3);font:800 16px var(--body);color:var(--ink);cursor:pointer}
+
+.foot{margin:22px 4px 0;text-align:center;font-size:12.5px;line-height:1.45;color:rgba(255,255,255,.82)}
+.warn-box{margin:0 0 16px;padding:11px 14px;background:#ffe1e7;border:3px solid var(--ink);border-radius:14px;font-weight:700;font-size:14px;line-height:1.4}
+
+#confetti{position:fixed;left:0;top:0;right:0;bottom:0;pointer-events:none;overflow:hidden;z-index:80}
+#confetti i{position:absolute;top:-20px;width:10px;height:16px;border:2px solid var(--ink);animation:fall linear forwards}
+@keyframes fall{to{transform:translate3d(var(--dx),112vh,0) rotate(var(--rot))}}
+
+[data-mark="cover"] .vlabel{left:0;top:0;width:100%;height:100%;border:0}
+.tile.lvl,.era:not(.mix){flex-direction:row;align-items:center;gap:8px;padding-right:34px}
+.tile .etx{display:grid;gap:1px;min-width:0}
+.tile.lvl .tick,.era:not(.mix) .tick{top:-10px;right:-8px;bottom:auto;width:26px;height:26px;border:3px solid #fff;box-shadow:0 0 0 2px var(--ink)}
+.tile.lvl,.era:not(.mix){padding-right:12px}
+.tile.lvl .big{white-space:nowrap}
+.tile.lvl .big{font-size:22px}
+.era:not(.mix) .yr{font-size:24px}
+.eico{flex:none;width:50px;height:50px;border-radius:14px;background:rgba(15,18,51,.07);display:grid;place-items:center;padding:3px}
+.era[aria-checked="true"] .eico{background:rgba(255,255,255,.55)}
+.eico svg{display:block;width:100%;height:100%}
+.tile.lvl .eico{width:64px;height:64px;border-radius:18px;padding:5px}
+.tile.lvl{gap:12px}
+/* móvil en vertical: la partida entera cabe casi sin scroll */
+@media (max-width:819px){
+  body[data-screen="game"] .wrap{padding-top:max(8px,env(safe-area-inset-top));padding-bottom:max(10px,env(safe-area-inset-bottom))}
+  body[data-screen="game"] .foot{display:none}
+  body[data-screen="game"] .topbar{margin-bottom:6px}
+  body[data-screen="game"] .ghost{min-height:40px;padding:6px 12px;font-size:14px;border-radius:12px}
+  body[data-screen="game"] .ghost svg{width:18px;height:18px}
+  body[data-screen="game"] .pill{min-height:36px;padding:5px 12px;font-size:12px}
+  body[data-screen="game"] .board{padding:2px 2px 8px;gap:8px;margin-bottom:0}
+  body[data-screen="game"] .chip{min-width:92px;padding:4px 10px 6px;border-radius:12px;border-width:2.5px}
+  body[data-screen="game"] .chip .n{font-size:12px}
+  body[data-screen="game"] .chip .s{font-size:20px}
+  body[data-screen="game"] .chip .k{font-size:10px;min-height:0}
+  body[data-screen="game"] .chip.active{transform:none}
+  body[data-screen="game"] .card.stage{padding:10px 14px 16px;border-radius:18px}
+  .stage .turn-of{font-size:11px;letter-spacing:.12em}
+  .stage .who{margin:2px 0 0;gap:10px}
+  .stage .who .avatar{width:32px;height:32px;font-size:14px;border-width:2.5px;box-shadow:0 2px 0 var(--ink)}
+  .stage .player{font-size:clamp(20px,6vw,24px)}
+  .stage .deck{--d:min(60vw,250px,29vh);--d:min(60vw,250px,29svh);margin:14px auto 8px}
+  .stage .status{margin-top:10px;font-size:16px;min-height:1.3em}
+  .stage .replay{margin-top:8px;min-height:44px;font-size:14px;padding:6px 16px 6px 10px;gap:8px}
+  .stage .replay .rp-ico{width:44px;height:44px}
+  .stage .options{gap:8px;margin-top:10px}
+  .stage .opt{padding:11px 16px;min-height:48px;font-size:17px;border-radius:14px;box-shadow:0 4px 0 var(--ink)}
+  .stage .result{margin-top:12px;padding-top:10px}
+  .stage .verdict{font-size:26px}
+  .stage .points{font-size:28px;margin-top:4px}
+  .stage .breakdown{font-size:12.5px;margin-top:3px}
+  .stage .song{margin:8px 0 10px;font-size:15px}
+  .stage .btn{padding:13px 16px;font-size:18px}
+  #game.res .deck{--d:min(34vw,130px,15vh);--d:min(34vw,130px,15svh);margin:8px auto 4px}
+  #game.res .status{display:none}
+}
+@media (min-width:820px){
+  body[data-screen="cover"] .wrap{max-width:1060px}
+  #cover{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);grid-template-areas:"stk hero" "logo hero" "tag hero" "act hero" "cnt hero";
+    align-content:center;align-items:center;justify-items:start;text-align:left;column-gap:48px;min-height:calc(100vh - 70px);min-height:calc(100dvh - 70px)}
+  #cover .stickers{grid-area:stk;justify-content:flex-start;max-width:none;margin:0 0 22px;gap:14px}
+  #cover .stickers{flex-wrap:nowrap;gap:10px}
+  #cover .stk{font-size:20px;padding:6px 12px 6px 7px;gap:6px}
+  #cover .stk .si{width:38px;height:38px}
+  #cover .logo{grid-area:stk;grid-area:logo;align-items:flex-start;font-size:clamp(72px,9.5vw,116px);transform-origin:left center}
+  #cover .hero.deck{grid-area:hero;justify-self:center;--d:min(40vw,460px,64vh);--d:min(40vw,460px,64svh);margin:0}
+  #cover .tag{grid-area:tag;font-size:22px;margin:22px 0 24px}
+  #cover .cover-actions{grid-area:act;max-width:480px}
+  #cover .count{grid-area:cnt}
+  .notes i{font-size:48px}
+  .sheet{max-width:560px;padding:26px 28px 28px}
+  .sheet h2{font-size:36px;margin-bottom:20px}
+  #how .sheet{max-width:820px;padding:28px 40px 30px}
+  #how .sheet h2{font-size:42px;margin-bottom:18px}
+  #how .rules{gap:14px;font-size:22px;line-height:1.3}
+  #how .rules li{grid-template-columns:48px minmax(0,1fr);gap:18px}
+  #how .rules .n{width:48px;height:48px;font-size:22px}
+  #how .ptable{font-size:19px;margin-top:18px}
+  #how .ptable th{font-size:14px}
+  #how .ptable th,#how .ptable td{padding:7px 6px}
+  #how .hint{font-size:17px;margin-top:16px}
+  #how .btn{font-size:24px;padding:16px;margin-top:14px}
+  .recs li{padding:12px 16px}
+  .recs .w{font-size:19px}
+  .recs .sc{font-size:26px}
+  .sheet .btn{font-size:23px}
+  .tile.lvl .eico{width:84px;height:84px;border-radius:22px}
+  .mode .tile.lvl .eico{width:64px;height:64px}
+  .tile.lvl{padding:16px 18px}
+  .tile.lvl b{font-size:20px}
+  .ph{font-size:30px}
+  .ph small{font-size:13.5px}
+  .switch-row .t{font-size:19px}
+  .tile.lvl .big{font-size:28px}
+  /* partida en pantalla grande: todo más grande */
+  body[data-screen="game"] .topbar{margin-bottom:10px}
+  body[data-screen="game"] .wrap{padding-top:16px;padding-bottom:12px}
+  body[data-screen="game"] .ghost{font-size:19px;min-height:56px;padding:12px 22px;border-radius:18px;gap:12px}
+  body[data-screen="game"] .ghost svg{width:24px;height:24px}
+  body[data-screen="game"] .pill{font-size:19px;min-height:56px;padding:10px 24px;max-width:none;letter-spacing:.06em}
+  body[data-screen="game"] .board{gap:16px;padding:4px 2px 14px}
+  body[data-screen="game"] .chip{min-width:170px;padding:8px 20px 10px;border-radius:18px}
+  body[data-screen="game"] .chip .n{font-size:19px;max-width:220px;gap:9px}
+  body[data-screen="game"] .chip .n i{width:16px;height:16px}
+  body[data-screen="game"] .chip .s{font-size:36px}
+  body[data-screen="game"] .chip .k{font-size:14px;min-height:14px}
+  .stage .turn-of{font-size:17px}
+  .stage .who .avatar{width:58px;height:58px;font-size:26px}
+  .stage .player{font-size:clamp(38px,4vw,52px)}
+  .stage .status{font-size:24px;margin-top:16px}
+  .stage .errhelp{font-size:16px}
+  .replay{font-size:20px;padding:8px 22px 8px 12px;gap:14px;min-height:56px;margin-top:10px}
+  .replay .rp-ico{width:72px;height:72px;margin:0}
+  .replay small{font-size:15px;padding:3px 10px}
+  .stage .opt{font-size:26px;padding:22px 24px;min-height:78px;border-radius:20px}
+  .stage .verdict{font-size:52px}
+  .stage .points{font-size:52px}
+  .stage .breakdown{font-size:17px}
+  .stage .song{font-size:24px}
+  .stage .btn{font-size:25px;padding:20px 22px}
+  .stage .btn.alt{font-size:20px}
+  #cover .notes i:nth-child(1){left:-4%;top:-2%}
+  #cover .notes i:nth-child(2){right:-2%;top:-4%}
+  #cover .notes i:nth-child(3){left:-3%;bottom:0}
+  #cover .notes i:nth-child(4){right:-3%;bottom:2%}
+}
+@media (min-width:820px) and (max-height:620px){
+  body[data-screen="game"] .wrap{padding-top:8px;padding-bottom:8px}
+  body[data-screen="game"] .topbar{margin-bottom:6px}
+  body[data-screen="game"] .ghost,body[data-screen="game"] .pill{font-size:14px;min-height:40px;padding:6px 14px;border-radius:14px}
+  body[data-screen="game"] .pill{border-radius:999px}
+  body[data-screen="game"] .ghost svg{width:18px;height:18px}
+  body[data-screen="game"] .board{gap:10px;padding:2px 2px 8px}
+  body[data-screen="game"] .chip{min-width:110px;padding:4px 12px 6px}
+  body[data-screen="game"] .chip .n{font-size:13px}
+  body[data-screen="game"] .chip .s{font-size:22px}
+  body[data-screen="game"] .card.stage{padding:12px 24px 16px}
+  .stage .who{margin:2px 0}
+  .stage .who .avatar{width:36px;height:36px;font-size:16px}
+  .stage .player{font-size:26px}
+  .stage .turn-of{font-size:12px}
+  .stage .deck{--d:min(36vh,180px);margin:8px auto 4px}
+  .stage .status{font-size:17px;margin-top:8px}
+  .replay{font-size:15px;min-height:44px;margin-top:6px}
+  .replay .rp-ico{width:44px;height:44px}
+  .stage .opt{font-size:19px;padding:12px 16px;min-height:52px}
+  .stage .verdict,.stage .points{font-size:30px}
+  .stage .song{font-size:17px;margin:8px 0}
+  .stage .btn{font-size:19px;padding:12px}
+}
+@media (min-width:1500px) and (min-height:900px){
+  body[data-screen="game"] .wrap{max-width:1280px}
+  .stage .deck{--d:min(26vw,440px,46vh);--d:min(26vw,440px,46svh)}
+  .stage .player{font-size:60px}
+  .stage .status{font-size:28px}
+  .stage .opt{font-size:30px;padding:26px 28px;min-height:92px}
+  .stage .verdict,.stage .points{font-size:62px}
+  .stage .song{font-size:28px}
+  body[data-screen="game"] .chip .s{font-size:44px}
+  body[data-screen="game"] .chip .n{font-size:21px}
+  body[data-screen="game"] .pill,body[data-screen="game"] .ghost{font-size:21px}
+}
+@media (max-width:370px){.eico{width:42px;height:42px}.tile.lvl .eico{width:48px;height:48px;padding:4px}.tile.lvl{gap:9px}}
+.panels{display:flex;flex-direction:column}
+.colA,.colB{display:contents}
+.panel[data-o="1"]{order:1}
+.panel[data-o="2"]{order:2}
+.panel[data-o="3"]{order:3}
+.panel[data-o="4"]{order:4}
+.panel[data-o="5"]{order:5}
+.panel[data-o="6"]{order:6}
+
+@media (min-width:820px){
+  body[data-screen="setup"] .wrap{max-width:1020px}
+  .panels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:20px;align-items:start}
+  .colA,.colB{display:block;min-width:0}
+  .panels .panel{margin-bottom:20px}
+  .actionbar{max-width:520px;margin:0 auto;padding-left:0;padding-right:0;background:none;position:static}
+  body[data-screen="setup"] .h-title{font-size:44px}
+  body[data-screen="game"] .wrap{max-width:1020px}
+  body[data-screen="game"] .card.stage{padding:22px 40px 26px}
+  .stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:48px;align-items:center;align-content:center;min-height:0}
+  .stage>*{grid-column:1}
+  .stage>.side{grid-column:2;grid-row:1/span 12;align-self:center}
+  .stage .deck{--d:min(28vw,340px,38vh);--d:min(28vw,340px,38svh);margin:14px auto 8px}
+  .stage .options{margin-top:0}
+  .stage .result{margin-top:22px}
+  .stage .result:first-child{margin-top:0}
+  .stage .opt{font-size:21px;padding:18px 20px}
+  .side:not(:has(.options:not([hidden]))):not(:has(.result:not([hidden]))){visibility:hidden}
+}
+@media (max-width:520px){.grid.two.mode{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:370px){
+  .wrap{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}
+  .panel{padding:14px 12px 16px}
+  .actionbar{margin:0 -12px}
+  .pill{font-size:11.5px;letter-spacing:.02em;padding:7px 10px}
+  .tile{padding:10px 11px}
+  .tile .big{font-size:23px}
+  .opt{font-size:17px;padding:14px}
+  .duo{grid-template-columns:1fr}
+  .notes i{display:none}
+}
+@media (min-width:700px){
+  .modal{align-items:center}
+  .wrap{padding-top:28px}
+}
+@media (prefers-reduced-motion:reduce){
+  .disc,.sun,.m-load,.notes i,.deck::before,.deck::after,.m-eq i{animation:none}
+  .m-load{border-top-color:var(--ink)}
+  .m-eq i:nth-child(1){height:45%}.m-eq i:nth-child(2){height:85%}.m-eq i:nth-child(3){height:60%}.m-eq i:nth-child(4){height:100%}
+  #confetti{display:none}
+  .opt.wrong,.chip.bump,.sheet,.push,.deck.ready .vinyl .badge,.deck.ready::before{animation:none}
+}
+</style>
+</head>
+<body data-screen="cover">
+<div class="wrap">
+
+  <!-- PORTADA -->
+  <section id="cover">
+    <button type="button" id="coverSfx" class="corner" aria-pressed="true" aria-label="Música de fondo">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5v5h4l5 4.2V5.3L7 9.5z" fill="#0f1233"/><path class="mute" d="M15.5 9.5l5 5m0-5l-5 5" stroke="#0f1233" stroke-width="2" stroke-linecap="round"/><g class="wave" fill="none" stroke="#0f1233" stroke-width="2" stroke-linecap="round"><path d="M15.5 9a4 4 0 0 1 0 6"/><path d="M18 6.5a7.5 7.5 0 0 1 0 11"/></g></svg>
+    </button>
+    <div class="stickers" aria-hidden="true"></div>
+    <h1 class="logo"><span class="l1">Quién</span><span class="l2">la</span><span class="l3">canta</span></h1>
+    <div class="deck hero spin" id="heroDeck" aria-hidden="true">
+      <div class="notes"><i>♪</i><i>♫</i><i>♪</i><i>♫</i></div>
+      <div class="vwrap" data-mark="q" id="heroDisc"></div>
+    </div>
+    <p class="tag">Suena un trocito de un temazo.<br>¿Sabes quién lo canta?</p>
+    <div class="cover-actions">
+      <button type="button" id="playBtn" class="btn big"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v18l15-9z" fill="#0f1233"/></svg>Jugar</button>
+      <div class="duo">
+        <button type="button" id="howBtn" class="btn alt">Cómo se juega</button>
+        <button type="button" id="recBtn" class="btn alt">Récords</button>
+      </div>
+      <button type="button" id="exitBtn" class="btn alt exit">Salir</button>
+    </div>
+    <p class="count" id="songCount"></p>
+  </section>
+
+  <!-- AJUSTES DE PARTIDA -->
+  <section id="setup" hidden>
+    <div class="bar">
+      <button type="button" id="setupBack" class="ghost" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="#0f1233" stroke-width="3" stroke-linecap="round"/></svg>Menú</button>
+    </div>
+    <h2 class="h-title">Nueva partida</h2>
+    <p class="warn-box" id="connWarn" hidden>No consigo conectar con iTunes ni con Deezer desde aquí. Si estás viendo el archivo dentro de la vista previa de Claude, descárgalo y ábrelo en tu navegador (Chrome, Safari…) o súbelo a Netlify Drop y abre el enlace.</p>
+
+    <div class="panels">
+    <div class="colA">
+    <div class="panel" data-o="1" style="--c:var(--coral)">
+      <h3 class="ph"><i></i>Jugadores<small>de 1 a 6</small></h3>
+      <div id="playerList" class="players"></div>
+      <button type="button" id="addPlayer" class="add-player">+ Añadir jugador</button>
+    </div>
+
+    <div class="panel" data-o="3" style="--c:var(--sky)">
+      <h3 class="ph" id="h-era"><i></i>Décadas<small>marca una o varias</small></h3>
+      <div class="grid two" id="eraGrid" role="group" aria-labelledby="h-era"></div>
+    </div>
+
+    <div class="panel" data-o="5" style="--c:var(--orange)">
+      <h3 class="ph" id="h-mode"><i></i>Al acertar</h3>
+      <div class="grid two mode" id="modeGrid" role="radiogroup" aria-labelledby="h-mode"></div>
+    </div>
+
+    </div>
+    <div class="colB">
+    <div class="panel" data-o="2" style="--c:var(--mint)">
+      <h3 class="ph" id="h-level"><i></i>Dificultad<small>segundos que suena</small></h3>
+      <div class="grid two" id="levelGrid" role="radiogroup" aria-labelledby="h-level"></div>
+      <p class="hint">Cuanto menos suena, más puntos vale cada acierto.</p>
+    </div>
+
+    <div class="panel" data-o="4" style="--c:var(--yellow)">
+      <h3 class="ph"><i></i>Canciones por jugador</h3>
+      <div class="stepper">
+        <button type="button" id="rMinus" aria-label="Una canción menos">−</button>
+        <output id="rVal" aria-live="polite">5</output>
+        <button type="button" id="rPlus" aria-label="Una canción más">+</button>
+      </div>
+      <p class="hint" id="rHint"></p>
+    </div>
+
+    <div class="panel" data-o="6" style="--c:var(--blue)">
+      <div class="switch-row">
+        <span class="t" id="musLabel">Música del menú<small>Un temazo de fondo</small></span>
+        <button type="button" id="musSwitch" class="switch" role="switch" aria-checked="true" aria-labelledby="musLabel"><span class="knob"></span></button>
+      </div>
+      <div class="switch-row" style="margin-top:14px">
+        <span class="t" id="sfxLabel">Efectos de sonido<small>Aplausos y fallos</small></span>
+        <button type="button" id="sfxSwitch" class="switch" role="switch" aria-checked="true" aria-labelledby="sfxLabel"><span class="knob"></span></button>
+      </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="actionbar">
+      <p class="summary" id="summary"></p>
+      <button type="button" id="startBtn" class="btn">Empezar partida</button>
+    </div>
+  </section>
+
+  <!-- PARTIDA -->
+  <section id="game" hidden>
+    <div class="topbar">
+      <button type="button" id="menuBtn" class="ghost" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="#0f1233" stroke-width="3" stroke-linecap="round"/></svg>Menú</button>
+      <div class="pill" id="turnCount">Canción 1 de 10</div>
+    </div>
+    <div class="board" id="board" aria-label="Marcador"></div>
+    <div class="card stage">
+      <p class="turn-of">Turno de</p>
+      <div class="who"><span class="avatar" id="whoAvatar">J</span><h2 class="player" id="playerName">Jugador 1</h2></div>
+
+      <div class="deck" id="deck">
+        <svg class="ring" viewBox="0 0 100 100" width="300" height="300" aria-hidden="true">
+          <circle class="bg" cx="50" cy="50" r="47"/>
+          <circle class="fg" id="ringFg" cx="50" cy="50" r="47" pathLength="100"/>
+        </svg>
+        <button type="button" id="vinyl" class="vinyl" data-mark="load" aria-label="Escuchar el fragmento"></button>
+        <span class="push" aria-hidden="true">¡Pulsa!</span>
+      </div>
+
+      <p class="status" id="status" aria-live="polite"></p>
+      <p class="errhelp" id="errHelp" hidden>Comprueba tu conexión. Si estás dentro de la vista previa de Claude, descarga el archivo y ábrelo en tu navegador.</p>
+      <button type="button" id="replay" class="replay" hidden><span class="rp-ico" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="21" cy="28" r="17" fill="#ffd60a" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.500 21q4-3 8.500-1" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 16q5-3.500 10 0.500" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="15" cy="27" rx="3.800" ry="4.600" fill="#fff" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="28.500" cy="26" rx="3.800" ry="4.600" fill="#fff" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16.200" cy="25.200" r="1.900" fill="#0f1233"/><circle cx="29.700" cy="24.200" r="1.900" fill="#0f1233"/><path d="M13 37.500q5-2.500 11 0" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="35" cy="12" r="1.800" fill="#fff" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="39" cy="8.500" r="7" fill="#fff" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><text x="39" y="12" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="10" fill="#0f1233">?</text></svg></span><span>Escuchar otra vez <small>−25 pts</small></span></button>
+      <button type="button" id="retry" class="btn alt" style="margin-top:14px" hidden>Reintentar</button>
+
+      <div class="side">
+      <div id="options" class="options" hidden></div>
+
+      <div id="result" class="result" hidden>
+        <div class="verdict" id="verdict"></div>
+        <div class="points" id="points"></div>
+        <p class="breakdown" id="breakdown"></p>
+        <p class="song" id="songInfo"></p>
+        <button type="button" id="nextBtn" class="btn">Siguiente</button>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section id="end" hidden>
+    <div class="card">
+      <div class="winner" id="winner"></div>
+      <p class="sub" id="endSub"></p>
+      <span class="newrec" id="newRec" hidden>¡Nuevo récord!</span>
+      <ol class="rank" id="rank"></ol>
+      <div class="stack">
+        <button type="button" id="againBtn" class="btn">Revancha con nuevas canciones</button>
+        <button type="button" id="endSetupBtn" class="btn alt">Ajustes de partida</button>
+        <button type="button" id="endHomeBtn" class="btn alt">Ir a la portada</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESPEDIDA -->
+  <section id="bye" hidden>
+    <div class="card" style="text-align:center;margin-top:12vh">
+      <div class="winner">¡Hasta pronto!</div>
+      <p class="sub">Ya puedes cerrar esta pestaña.</p>
+      <button type="button" id="byeBack" class="btn">Volver a la portada</button>
+    </div>
+  </section>
+
+  <p class="foot">Los fragmentos de 30 s los ofrecen Apple (iTunes) y Deezer. Hace falta conexión a internet.</p>
+</div>
+
+<!-- MENÚ DE PAUSA -->
+<div class="modal" id="menu" hidden role="dialog" aria-modal="true" aria-labelledby="menuTitle">
+  <div class="sheet">
+    <h2 id="menuTitle">Pausa</h2>
+    <button type="button" class="btn" id="mResume">Seguir jugando</button>
+    <button type="button" class="btn alt" id="mRestart">Reiniciar partida</button>
+    <button type="button" class="btn alt" id="mSettings">Ajustes de partida</button>
+    <button type="button" class="btn alt" id="mHome">Ir a la portada</button>
+    <button type="button" class="row-toggle" id="mSfx" role="switch" aria-checked="true"><span>Efectos de sonido</span><b id="mSfxVal">Sí</b></button>
+  </div>
+</div>
+
+<!-- MENÚ DE AJUSTES -->
+<div class="modal" id="smenu" hidden role="dialog" aria-modal="true" aria-labelledby="smTitle">
+  <div class="sheet">
+    <h2 id="smTitle">Menú</h2>
+    <button type="button" class="btn" id="smBack">Volver a la portada</button>
+    <button type="button" class="btn alt" id="smHow">Cómo se juega</button>
+    <button type="button" class="btn alt" id="smRec">Récords</button>
+    <button type="button" class="btn alt" id="smExit">Salir</button>
+    <button type="button" class="link-btn" data-close>Cerrar</button>
+  </div>
+</div>
+
+<!-- CÓMO SE JUEGA -->
+<div class="modal" id="how" hidden role="dialog" aria-modal="true" aria-labelledby="howTitle">
+  <div class="sheet">
+    <h2 id="howTitle">Cómo se juega</h2>
+    <ol class="rules">
+      <li><span class="n">1</span><span>Pulsa el disco. Suena un trocito de una canción famosa y se corta.</span></li>
+      <li><span class="n">2</span><span>Elige quién la canta entre tres artistas parecidos.</span></li>
+      <li><span class="n">3</span><span>Si aciertas, sumas puntos. Si fallas, 0 puntos y juega el siguiente.</span></li>
+    </ol>
+    <table class="ptable">
+      <thead><tr><th>Dificultad</th><th>Suena</th><th>Puntos base</th></tr></thead>
+      <tbody id="ptBody"></tbody>
+    </table>
+    <p class="hint" style="text-align:left">Además: hasta +50 por responder rápido y +10 por cada acierto seguido (máximo +50). Escuchar otra vez resta 25.</p>
+    <button type="button" class="btn" data-close style="margin-top:16px">Entendido</button>
+  </div>
+</div>
+
+<!-- RÉCORDS -->
+<div class="modal" id="records" hidden role="dialog" aria-modal="true" aria-labelledby="recTitle">
+  <div class="sheet">
+    <h2 id="recTitle">Récords</h2>
+    <ol class="recs" id="recList"></ol>
+    <button type="button" class="link-btn" id="recClear" hidden>Borrar récords</button>
+    <button type="button" class="btn" data-close style="margin-top:16px">Cerrar</button>
+  </div>
+</div>
+
+<div id="confetti" aria-hidden="true"></div>
+
+<script>
+(function(){
+'use strict';
+
+/* ------------------------------------------------------------------
+   CANCIONES: [título, artista, parecido 1, parecido 2, época]
+   Épocas: 80 · 90 · 00 (años 2000) · now (2010 en adelante)
+   Para añadir más basta con una línea nueva en MORE (título|artista|parecido|parecido|época).
+   El audio se busca solo; si una canción no se encuentra, se salta.
+------------------------------------------------------------------- */
+var SONGS=[
+ ["Billie Jean","Michael Jackson","Prince","Lionel Richie","80"],
+ ["Like a Virgin","Madonna","Cyndi Lauper","Janet Jackson","80"],
+ ["Take On Me","a-ha","Duran Duran","Depeche Mode","80"],
+ ["Sweet Dreams (Are Made of This)","Eurythmics","Soft Cell","Tears for Fears","80"],
+ ["Every Breath You Take","The Police","Dire Straits","Phil Collins","80"],
+ ["Girls Just Want to Have Fun","Cyndi Lauper","Madonna","Belinda Carlisle","80"],
+ ["Livin' on a Prayer","Bon Jovi","Def Leppard","Europe","80"],
+ ["The Final Countdown","Europe","Bon Jovi","Journey","80"],
+ ["Don't Stop Believin'","Journey","Foreigner","Toto","80"],
+ ["Africa","Toto","Journey","Foreigner","80"],
+ ["Money for Nothing","Dire Straits","Sting","Eric Clapton","80"],
+ ["With or Without You","U2","Simple Minds","INXS","80"],
+ ["Don't You (Forget About Me)","Simple Minds","U2","Tears for Fears","80"],
+ ["Wake Me Up Before You Go-Go","Wham!","Duran Duran","Culture Club","80"],
+ ["Karma Chameleon","Culture Club","Wham!","Spandau Ballet","80"],
+ ["Hungry Like the Wolf","Duran Duran","Spandau Ballet","a-ha","80"],
+ ["Footloose","Kenny Loggins","Bryan Adams","Huey Lewis & The News","80"],
+ ["Summer of '69","Bryan Adams","Bruce Springsteen","Bon Jovi","80"],
+ ["Eye of the Tiger","Survivor","Journey","Foreigner","80"],
+ ["Sweet Child o' Mine","Guns N' Roses","Mötley Crüe","Aerosmith","80"],
+ ["Pour Some Sugar on Me","Def Leppard","Poison","Mötley Crüe","80"],
+ ["Jump","Van Halen","Def Leppard","Whitesnake","80"],
+ ["Back in Black","AC/DC","Van Halen","Judas Priest","80"],
+ ["Another One Bites the Dust","Queen","Kiss","Aerosmith","80"],
+ ["Mujer contra mujer","Mecano","Alaska y Dinarama","Hombres G","80"],
+ ["Devuélveme a mi chica","Hombres G","Mecano","Los Secretos","80"],
+ ["La chica de ayer","Nacha Pop","Radio Futura","Los Secretos","80"],
+ ["Bamboleo","Gipsy Kings","Ketama","Azúcar Moreno","80"],
+ ["Smells Like Teen Spirit","Nirvana","Pearl Jam","Soundgarden","90"],
+ ["Wonderwall","Oasis","Blur","The Verve","90"],
+ ["Bitter Sweet Symphony","The Verve","Oasis","Radiohead","90"],
+ ["Zombie","The Cranberries","Sinéad O'Connor","Alanis Morissette","90"],
+ ["Losing My Religion","R.E.M.","U2","The Smiths","90"],
+ ["Wind of Change","Scorpions","Bon Jovi","Europe","90"],
+ ["I Want It That Way","Backstreet Boys","*NSYNC","Westlife","90"],
+ ["...Baby One More Time","Britney Spears","Christina Aguilera","Mandy Moore","90"],
+ ["Wannabe","Spice Girls","All Saints","Destiny's Child","90"],
+ ["No Scrubs","TLC","Destiny's Child","En Vogue","90"],
+ ["My Heart Will Go On","Céline Dion","Whitney Houston","Mariah Carey","90"],
+ ["I Will Always Love You","Whitney Houston","Mariah Carey","Céline Dion","90"],
+ ["What Is Love","Haddaway","Snap!","2 Unlimited","90"],
+ ["Gangsta's Paradise","Coolio","Dr. Dre","Snoop Dogg","90"],
+ ["Macarena","Los del Río","Azúcar Moreno","Ketama","90"],
+ ["Livin' la Vida Loca","Ricky Martin","Enrique Iglesias","Marc Anthony","90"],
+ ["Mambo No. 5","Lou Bega","Ricky Martin","Enrique Iglesias","90"],
+ ["Torn","Natalie Imbruglia","Alanis Morissette","Sheryl Crow","90"],
+ ["Iris","Goo Goo Dolls","Matchbox Twenty","Counting Crows","90"],
+ ["Nothing Else Matters","Metallica","Guns N' Roses","Aerosmith","90"],
+ ["I Don't Want to Miss a Thing","Aerosmith","Bon Jovi","Def Leppard","90"],
+ ["Creep","Radiohead","Oasis","Blur","90"],
+ ["Song 2","Blur","Oasis","Pulp","90"],
+ ["Barbie Girl","Aqua","Vengaboys","Spice Girls","90"],
+ ["Cotton Eye Joe","Rednex","Vengaboys","Aqua","90"],
+ ["Enjoy the Silence","Depeche Mode","New Order","The Cure","90"],
+ ["Blue (Da Ba Dee)","Eiffel 65","Aqua","Haddaway","90"],
+ ["La flaca","Jarabe de Palo","Estopa","Café Quijano","90"],
+ ["Bailamos","Enrique Iglesias","Ricky Martin","Marc Anthony","90"],
+ ["Hips Don't Lie","Shakira","Jennifer Lopez","Beyoncé","00"],
+ ["Crazy in Love","Beyoncé","Rihanna","Alicia Keys","00"],
+ ["Umbrella","Rihanna","Beyoncé","Ciara","00"],
+ ["Since U Been Gone","Kelly Clarkson","Avril Lavigne","P!nk","00"],
+ ["Complicated","Avril Lavigne","Kelly Clarkson","Michelle Branch","00"],
+ ["Mr. Brightside","The Killers","Kings of Leon","Franz Ferdinand","00"],
+ ["Seven Nation Army","The White Stripes","The Strokes","Arctic Monkeys","00"],
+ ["Clocks","Coldplay","Keane","Snow Patrol","00"],
+ ["Chasing Cars","Snow Patrol","Coldplay","Keane","00"],
+ ["In the End","Linkin Park","Evanescence","Limp Bizkit","00"],
+ ["Bring Me to Life","Evanescence","Within Temptation","Linkin Park","00"],
+ ["Lose Yourself","Eminem","50 Cent","Dr. Dre","00"],
+ ["In da Club","50 Cent","Eminem","Ja Rule","00"],
+ ["Hey Ya!","OutKast","Black Eyed Peas","Gnarls Barkley","00"],
+ ["I Gotta Feeling","Black Eyed Peas","Pitbull","Flo Rida","00"],
+ ["Californication","Red Hot Chili Peppers","Foo Fighters","Green Day","00"],
+ ["American Idiot","Green Day","Blink-182","Sum 41","00"],
+ ["How You Remind Me","Nickelback","Creed","3 Doors Down","00"],
+ ["Rehab","Amy Winehouse","Duffy","Adele","00"],
+ ["Poker Face","Lady Gaga","Katy Perry","Kesha","00"],
+ ["Gasolina","Daddy Yankee","Don Omar","Wisin & Yandel","00"],
+ ["Ave María","David Bisbal","David Bustamante","Chenoa","00"],
+ ["La camisa negra","Juanes","Carlos Vives","Alejandro Sanz","00"],
+ ["Rosas","La Oreja de Van Gogh","Amaral","Pereza","00"],
+ ["Aserejé (The Ketchup Song)","Las Ketchup","Azúcar Moreno","Ketama","00"],
+ ["Dragostea Din Tei","O-Zone","Haddaway","Eiffel 65","00"],
+ ["Rolling in the Deep","Adele","Florence + The Machine","Duffy","now"],
+ ["Uptown Funk","Mark Ronson","Pharrell Williams","Justin Timberlake","now"],
+ ["Shape of You","Ed Sheeran","Justin Bieber","Shawn Mendes","now"],
+ ["Blinding Lights","The Weeknd","Post Malone","Bruno Mars","now"],
+ ["Despacito","Luis Fonsi","Maluma","J Balvin","now"],
+ ["Havana","Camila Cabello","Dua Lipa","Selena Gomez","now"],
+ ["Don't Start Now","Dua Lipa","Ariana Grande","Doja Cat","now"],
+ ["Happy","Pharrell Williams","Bruno Mars","Justin Timberlake","now"],
+ ["Get Lucky","Daft Punk","Justice","Chromeo","now"],
+ ["Shut Up and Dance","Walk the Moon","fun.","Imagine Dragons","now"],
+ ["Believer","Imagine Dragons","Twenty One Pilots","OneRepublic","now"],
+ ["bad guy","Billie Eilish","Lorde","Olivia Rodrigo","now"],
+ ["As It Was","Harry Styles","Shawn Mendes","Niall Horan","now"],
+ ["Flowers","Miley Cyrus","Taylor Swift","Dua Lipa","now"],
+ ["Anti-Hero","Taylor Swift","Olivia Rodrigo","Billie Eilish","now"],
+ ["Someone You Loved","Lewis Capaldi","Sam Smith","James Arthur","now"],
+ ["Dance Monkey","Tones and I","Dua Lipa","Lizzo","now"],
+ ["Cheap Thrills","Sia","Rihanna","Katy Perry","now"],
+ ["Roar","Katy Perry","Lady Gaga","Kesha","now"],
+ ["Danza Kuduro","Don Omar","Daddy Yankee","Wisin & Yandel","now"],
+ ["Pepas","Farruko","J Balvin","Maluma","now"],
+ ["Tití Me Preguntó","Bad Bunny","Ozuna","Anuel AA","now"],
+ ["Hawái","Maluma","J Balvin","Sebastián Yatra","now"],
+ ["La Bachata","Manuel Turizo","Feid","Rauw Alejandro","now"]
+];
+
+var MORE=`
+Beat It|Michael Jackson|Prince|Lionel Richie|80
+Purple Rain|Prince|Michael Jackson|David Bowie|80
+When Doves Cry|Prince|Michael Jackson|Lionel Richie|80
+Material Girl|Madonna|Cyndi Lauper|Kylie Minogue|80
+La Isla Bonita|Madonna|Gloria Estefan|Cyndi Lauper|80
+Like a Prayer|Madonna|Janet Jackson|Cyndi Lauper|80
+True Colors|Cyndi Lauper|Tracy Chapman|Annie Lennox|80
+Time After Time|Cyndi Lauper|Pat Benatar|Belinda Carlisle|80
+Heaven Is a Place on Earth|Belinda Carlisle|The Bangles|Pat Benatar|80
+Walk Like an Egyptian|The Bangles|The Go-Go's|Belinda Carlisle|80
+Hello|Lionel Richie|Stevie Wonder|Michael Jackson|80
+I Just Called to Say I Love You|Stevie Wonder|Lionel Richie|Marvin Gaye|80
+Careless Whisper|George Michael|Wham!|Elton John|80
+Last Christmas|Wham!|Duran Duran|Culture Club|80
+Faith|George Michael|Wham!|Rick Astley|80
+Never Gonna Give You Up|Rick Astley|Bananarama|Pet Shop Boys|80
+West End Girls|Pet Shop Boys|Erasure|Depeche Mode|80
+Just Can't Get Enough|Depeche Mode|New Order|Erasure|80
+Blue Monday|New Order|Depeche Mode|The Cure|80
+Love Will Tear Us Apart|Joy Division|New Order|The Cure|80
+Just Like Heaven|The Cure|The Smiths|New Order|80
+There Is a Light That Never Goes Out|The Smiths|The Cure|Echo & The Bunnymen|80
+Don't Dream It's Over|Crowded House|Men at Work|Simple Minds|80
+Down Under|Men at Work|Crowded House|INXS|80
+Need You Tonight|INXS|U2|Duran Duran|80
+Sunday Bloody Sunday|U2|Simple Minds|The Alarm|80
+I Still Haven't Found What I'm Looking For|U2|Simple Minds|R.E.M.|80
+Roxanne|The Police|Dire Straits|Sting|80
+Message in a Bottle|The Police|Dire Straits|Genesis|80
+In the Air Tonight|Phil Collins|Genesis|Peter Gabriel|80
+Sledgehammer|Peter Gabriel|Phil Collins|Genesis|80
+Invisible Touch|Genesis|Phil Collins|Mike + The Mechanics|80
+Hold Me Now|Thompson Twins|Howard Jones|Tears for Fears|80
+Everybody Wants to Rule the World|Tears for Fears|Simple Minds|Talk Talk|80
+Shout|Tears for Fears|Simple Minds|Duran Duran|80
+Take My Breath Away|Berlin|Cutting Crew|Starship|80
+(I Just) Died in Your Arms|Cutting Crew|Berlin|Tears for Fears|80
+We Built This City|Starship|Foreigner|Heart|80
+Alone|Heart|Starship|Pat Benatar|80
+Hit Me with Your Best Shot|Pat Benatar|Heart|Joan Jett & The Blackhearts|80
+I Love Rock 'n' Roll|Joan Jett & The Blackhearts|Pat Benatar|Heart|80
+Jessie's Girl|Rick Springfield|Huey Lewis & The News|Journey|80
+The Power of Love|Huey Lewis & The News|Kenny Loggins|Bryan Adams|80
+Danger Zone|Kenny Loggins|Survivor|Starship|80
+Glory Days|Bruce Springsteen|John Mellencamp|Bryan Adams|80
+Jack & Diane|John Mellencamp|Bruce Springsteen|Bob Seger|80
+Dancing in the Dark|Bruce Springsteen|Bryan Adams|John Mellencamp|80
+Welcome to the Jungle|Guns N' Roses|Mötley Crüe|Aerosmith|80
+Here I Go Again|Whitesnake|Def Leppard|Bon Jovi|80
+Wanted Dead or Alive|Bon Jovi|Skid Row|Whitesnake|80
+You Give Love a Bad Name|Bon Jovi|Poison|Def Leppard|80
+Dr. Feelgood|Mötley Crüe|Poison|Skid Row|80
+Every Rose Has Its Thorn|Poison|Mötley Crüe|Warrant|80
+Round and Round|Ratt|Poison|Mötley Crüe|80
+Master of Puppets|Metallica|Iron Maiden|Megadeth|80
+The Number of the Beast|Iron Maiden|Judas Priest|Metallica|80
+Ace of Spades|Motörhead|Judas Priest|AC/DC|80
+Hells Bells|AC/DC|Black Sabbath|Judas Priest|80
+You Shook Me All Night Long|AC/DC|Aerosmith|Van Halen|80
+Panama|Van Halen|Aerosmith|Def Leppard|80
+Radio Ga Ga|Queen|Duran Duran|Elton John|80
+I Want to Break Free|Queen|Elton John|David Bowie|80
+Under Pressure|Queen|David Bowie|Elton John|80
+Let's Dance|David Bowie|Duran Duran|Prince|80
+Don't You Want Me|The Human League|Soft Cell|Eurythmics|80
+Tainted Love|Soft Cell|The Human League|Eurythmics|80
+Come On Eileen|Dexys Midnight Runners|Madness|Culture Club|80
+Our House|Madness|The Specials|Dexys Midnight Runners|80
+Ghostbusters|Ray Parker Jr.|Huey Lewis & The News|Kenny Loggins|80
+Flashdance... What a Feeling|Irene Cara|Donna Summer|Laura Branigan|80
+Gloria|Laura Branigan|Irene Cara|Pat Benatar|80
+Total Eclipse of the Heart|Bonnie Tyler|Pat Benatar|Meat Loaf|80
+Holding Out for a Hero|Bonnie Tyler|Pat Benatar|Laura Branigan|80
+99 Luftballons|Nena|Falco|Alphaville|80
+Rock Me Amadeus|Falco|Nena|Alphaville|80
+Forever Young|Alphaville|a-ha|Nena|80
+Pump Up the Jam|Technotronic|Snap!|Black Box|80
+Ride on Time|Black Box|Technotronic|Snap!|80
+Dancing with Myself|Billy Idol|Duran Duran|Simple Minds|80
+Kids in America|Kim Wilde|Toyah|Pat Benatar|80
+Video Killed the Radio Star|The Buggles|Devo|Gary Numan|80
+Walking on Sunshine|Katrina and the Waves|The Bangles|Bananarama|80
+Venus|Bananarama|Belinda Carlisle|Kylie Minogue|80
+I Should Be So Lucky|Kylie Minogue|Bananarama|Belinda Carlisle|80
+Conga|Miami Sound Machine|Gloria Estefan|Madonna|80
+Lambada|Kaoma|Gipsy Kings|Los Kjarkas|80
+Hoy no me puedo levantar|Mecano|Hombres G|Alaska y Dinarama|80
+Cruz de navajas|Mecano|Hombres G|Radio Futura|80
+Sufre mamón|Hombres G|Los Ronaldos|Mecano|80
+Marta tiene un marcapasos|Hombres G|Mecano|Los Ronaldos|80
+Enamorado de la moda juvenil|Radio Futura|Nacha Pop|Los Secretos|80
+Escuela de calor|Radio Futura|Nacha Pop|Los Secretos|80
+Pasan los días|Los Secretos|Nacha Pop|Los Rodríguez|80
+Déjame|Los Secretos|Nacha Pop|Mecano|80
+A quién le importa|Alaska y Dinarama|Mecano|Olé Olé|80
+Bailando|Alaska y Dinarama|Olé Olé|Mecano|80
+Voy a ser mamá|Olé Olé|Alaska y Dinarama|Mecano|80
+No controles|Olé Olé|Alaska y Dinarama|Mecano|80
+Cadillac solitario|Loquillo|Los Rebeldes|Burning|80
+Alive|Pearl Jam|Nirvana|Alice in Chains|90
+Come as You Are|Nirvana|Pearl Jam|Soundgarden|90
+Black Hole Sun|Soundgarden|Pearl Jam|Alice in Chains|90
+Plush|Stone Temple Pilots|Pearl Jam|Alice in Chains|90
+Under the Bridge|Red Hot Chili Peppers|Faith No More|Pearl Jam|90
+Epic|Faith No More|Red Hot Chili Peppers|Rage Against the Machine|90
+Killing in the Name|Rage Against the Machine|Red Hot Chili Peppers|Faith No More|90
+Basket Case|Green Day|Blink-182|The Offspring|90
+All the Small Things|Blink-182|Green Day|Sum 41|90
+Self Esteem|The Offspring|Green Day|Blink-182|90
+Semi-Charmed Life|Third Eye Blind|Matchbox Twenty|Goo Goo Dolls|90
+Walkin' on the Sun|Smash Mouth|Sugar Ray|Third Eye Blind|90
+Every Morning|Sugar Ray|Smash Mouth|Third Eye Blind|90
+Linger|The Cranberries|Sinéad O'Connor|The Corrs|90
+Ironic|Alanis Morissette|Sheryl Crow|Natalie Imbruglia|90
+All I Wanna Do|Sheryl Crow|Alanis Morissette|Natalie Imbruglia|90
+Waterfalls|TLC|Destiny's Child|Salt-N-Pepa|90
+Push It|Salt-N-Pepa|TLC|En Vogue|90
+Fantasy|Mariah Carey|Whitney Houston|Janet Jackson|90
+I'm Every Woman|Whitney Houston|Chaka Khan|Diana Ross|90
+Believe|Cher|Madonna|Kylie Minogue|90
+Vogue|Madonna|Janet Jackson|Kylie Minogue|90
+U Can't Touch This|MC Hammer|Vanilla Ice|Salt-N-Pepa|90
+Ice Ice Baby|Vanilla Ice|MC Hammer|Young MC|90
+Jump Around|House of Pain|Cypress Hill|Beastie Boys|90
+Regulate|Warren G|Snoop Dogg|Coolio|90
+Gin and Juice|Snoop Dogg|Dr. Dre|Warren G|90
+California Love|2Pac|Dr. Dre|The Notorious B.I.G.|90
+Juicy|The Notorious B.I.G.|2Pac|Nas|90
+Killing Me Softly With His Song|Fugees|Lauryn Hill|TLC|90
+Gettin' Jiggy wit It|Will Smith|Puff Daddy|Coolio|90
+Common People|Pulp|Blur|Suede|90
+Don't Speak|No Doubt|Garbage|Alanis Morissette|90
+Stupid Girl|Garbage|No Doubt|Alanis Morissette|90
+Everybody (Backstreet's Back)|Backstreet Boys|*NSYNC|Boyzone|90
+Back for Good|Take That|Boyzone|Backstreet Boys|90
+Genie in a Bottle|Christina Aguilera|Britney Spears|Jessica Simpson|90
+Always|Bon Jovi|Aerosmith|Def Leppard|90
+Enter Sandman|Metallica|Pantera|Megadeth|90
+More Than Words|Extreme|Boyz II Men|Mr. Big|90
+To Be with You|Mr. Big|Extreme|Bon Jovi|90
+End of the Road|Boyz II Men|Color Me Badd|All-4-One|90
+I Swear|All-4-One|Boyz II Men|Color Me Badd|90
+Un-Break My Heart|Toni Braxton|Whitney Houston|Mariah Carey|90
+Truly Madly Deeply|Savage Garden|Backstreet Boys|Bryan Adams|90
+Kiss from a Rose|Seal|Lenny Kravitz|Sting|90
+Fly Away|Lenny Kravitz|Seal|Prince|90
+Ordinary World|Duran Duran|Simple Minds|Tears for Fears|90
+Tears in Heaven|Eric Clapton|Phil Collins|Elton John|90
+Can You Feel the Love Tonight|Elton John|Phil Collins|Billy Joel|90
+3 AM|Matchbox Twenty|Goo Goo Dolls|Counting Crows|90
+Mr. Jones|Counting Crows|Matchbox Twenty|Goo Goo Dolls|90
+One Headlight|The Wallflowers|Counting Crows|Matchbox Twenty|90
+What's Up?|4 Non Blondes|Alanis Morissette|Sheryl Crow|90
+Mr. Vain|Culture Beat|Snap!|2 Unlimited|90
+No Limit|2 Unlimited|Snap!|Haddaway|90
+Rhythm Is a Dancer|Snap!|Haddaway|2 Unlimited|90
+Be My Lover|La Bouche|Real McCoy|Corona|90
+Another Night|Real McCoy|La Bouche|Corona|90
+The Rhythm of the Night|Corona|Real McCoy|La Bouche|90
+Insomnia|Faithless|The Chemical Brothers|The Prodigy|90
+Firestarter|The Prodigy|The Chemical Brothers|Fatboy Slim|90
+Praise You|Fatboy Slim|The Chemical Brothers|Moby|90
+Loser|Beck|Weezer|Pavement|90
+Boom, Boom, Boom!!|Vengaboys|Aqua|Culture Beat|90
+Angels|Robbie Williams|Take That|George Michael|90
+Everlong|Foo Fighters|Nirvana|Pearl Jam|90
+Why Does It Always Rain on Me?|Travis|Coldplay|Keane|90
+Du Hast|Rammstein|Oomph!|Marilyn Manson|90
+Say My Name|Destiny's Child|TLC|En Vogue|90
+Entre dos tierras|Héroes del Silencio|Extremoduro|Los Enemigos|90
+Mar adentro|Héroes del Silencio|Los Secretos|Duncan Dhu|90
+Vivir sin aire|Maná|Los Fabulosos Cadillacs|Café Tacvba|90
+En el muelle de San Blas|Maná|Los Prisioneros|Caifanes|90
+Rayando el sol|Maná|Caifanes|Jaguares|90
+Matador|Los Fabulosos Cadillacs|Maná|Los Auténticos Decadentes|90
+Corazón espinado|Santana|Maná|Los Lobos|90
+Smooth|Santana|Gipsy Kings|Los Lobos|90
+La Copa de la Vida|Ricky Martin|Enrique Iglesias|Marc Anthony|90
+Corazón partío|Alejandro Sanz|Miguel Bosé|David Bisbal|90
+Y solo se me ocurre amarte|Alejandro Sanz|Miguel Bosé|Ricardo Montaner|90
+Estoy aquí|Shakira|Thalía|Gloria Estefan|90
+Ciega, sordomuda|Shakira|Thalía|Alejandro Sanz|90
+Sólo se vive una vez|Azúcar Moreno|Ketama|Las Ketchup|90
+La tierra del olvido|Carlos Vives|Juanes|Shakira|90
+Soldadito marinero|Fito & Fitipaldis|Extremoduro|Platero y Tú|90
+So payaso|Extremoduro|Platero y Tú|Marea|90
+Torero|Chayanne|Ricky Martin|Luis Miguel|90
+La incondicional|Luis Miguel|Chayanne|Ricardo Montaner|90
+Amor a la mexicana|Thalía|Shakira|Gloria Estefan|90
+Tren al sur|Los Prisioneros|Soda Stereo|Enanitos Verdes|90
+De música ligera|Soda Stereo|Los Prisioneros|Enanitos Verdes|90
+Persiana americana|Soda Stereo|Enanitos Verdes|Los Fabulosos Cadillacs|90
+Lamento boliviano|Enanitos Verdes|Soda Stereo|Los Fabulosos Cadillacs|90
+La bilirrubina|Juan Luis Guerra|Rubén Blades|Willie Colón|90
+Y nos dieron las diez|Joaquín Sabina|Joan Manuel Serrat|Fito Páez|90
+19 días y 500 noches|Joaquín Sabina|Joan Manuel Serrat|Ismael Serrano|90
+Yellow|Coldplay|Keane|Travis|00
+Somebody Told Me|The Killers|Franz Ferdinand|The Strokes|00
+Take Me Out|Franz Ferdinand|The Killers|Kaiser Chiefs|00
+Last Nite|The Strokes|The Libertines|The White Stripes|00
+I Bet You Look Good on the Dancefloor|Arctic Monkeys|Kaiser Chiefs|The Kooks|00
+Ruby|Kaiser Chiefs|Arctic Monkeys|The Kooks|00
+Naïve|The Kooks|Kaiser Chiefs|Razorlight|00
+Time to Pretend|MGMT|Empire of the Sun|Passion Pit|00
+Boulevard of Broken Dreams|Green Day|Blink-182|My Chemical Romance|00
+Welcome to the Black Parade|My Chemical Romance|Panic! at the Disco|Fall Out Boy|00
+I Write Sins Not Tragedies|Panic! at the Disco|Fall Out Boy|My Chemical Romance|00
+Sugar, We're Goin Down|Fall Out Boy|Panic! at the Disco|Paramore|00
+Misery Business|Paramore|Avril Lavigne|Evanescence|00
+Chop Suey!|System of a Down|Slipknot|Korn|00
+Hey There Delilah|Plain White T's|Jason Mraz|Train|00
+Drops of Jupiter|Train|Matchbox Twenty|Maroon 5|00
+She Will Be Loved|Maroon 5|Train|Jason Mraz|00
+Beautiful Day|U2|Coldplay|Travis|00
+Kryptonite|3 Doors Down|Nickelback|Creed|00
+Toxic|Britney Spears|Christina Aguilera|Kylie Minogue|00
+Oops!... I Did It Again|Britney Spears|Christina Aguilera|Jessica Simpson|00
+Can't Get You Out of My Head|Kylie Minogue|Dido|Sophie Ellis-Bextor|00
+Murder on the Dancefloor|Sophie Ellis-Bextor|Kylie Minogue|Dido|00
+Bleeding Love|Leona Lewis|Alexandra Burke|Adele|00
+Mercy|Duffy|Adele|Amy Winehouse|00
+Whole Again|Atomic Kitten|Sugababes|Girls Aloud|00
+Rock DJ|Robbie Williams|George Michael|Take That|00
+Crazy|Gnarls Barkley|OutKast|Black Eyed Peas|00
+Yeah!|Usher|Chris Brown|Justin Timberlake|00
+Cry Me a River|Justin Timberlake|Usher|Robbie Williams|00
+Lose Control|Missy Elliott|Timbaland|Ciara|00
+Hollaback Girl|Gwen Stefani|Rihanna|Avril Lavigne|00
+Dilemma|Nelly|Eminem|Ja Rule|00
+Hot in Herre|Nelly|Ja Rule|Snoop Dogg|00
+99 Problems|Jay-Z|Kanye West|Nas|00
+Gold Digger|Kanye West|Jay-Z|Nelly|00
+Low|Flo Rida|T-Pain|Lil Wayne|00
+Love Generation|Bob Sinclar|David Guetta|Armand Van Helden|00
+Sandstorm|Darude|Basshunter|Scooter|00
+Satisfaction|Benny Benassi|David Guetta|Eiffel 65|00
+Bad Romance|Lady Gaga|Katy Perry|Britney Spears|00
+Halo|Beyoncé|Rihanna|Alicia Keys|00
+Fallin'|Alicia Keys|Norah Jones|Beyoncé|00
+Don't Cha|The Pussycat Dolls|Destiny's Child|Black Eyed Peas|00
+So Sick|Ne-Yo|Usher|Chris Brown|00
+Smack That|Akon|T-Pain|Flo Rida|00
+Maneater|Nelly Furtado|Shakira|Gwen Stefani|00
+In Too Deep|Sum 41|Blink-182|Good Charlotte|00
+Welcome to My Life|Simple Plan|Good Charlotte|Sum 41|00
+The Reason|Hoobastank|Nickelback|3 Doors Down|00
+Bad Day|Daniel Powter|James Blunt|Jason Mraz|00
+Use Somebody|Kings of Leon|Coldplay|The Killers|00
+Supermassive Black Hole|Muse|Radiohead|Kasabian|00
+No One Knows|Queens of the Stone Age|Foo Fighters|Muse|00
+Island in the Sun|Weezer|Sugar Ray|Smash Mouth|00
+Feel Good Inc.|Gorillaz|Daft Punk|The Prodigy|00
+One More Time|Daft Punk|Justice|Cassius|00
+Get Busy|Sean Paul|Shaggy|Beenie Man|00
+It Wasn't Me|Shaggy|Sean Paul|Maxi Priest|00
+I'm Yours|Jason Mraz|Jack Johnson|Colbie Caillat|00
+Haven't Met You Yet|Michael Bublé|Jason Mraz|Robbie Williams|00
+You're Beautiful|James Blunt|James Morrison|David Gray|00
+Somewhere Only We Know|Keane|Coldplay|Snow Patrol|00
+I Don't Feel Like Dancin'|Scissor Sisters|Elton John|Mika|00
+Grace Kelly|Mika|Scissor Sisters|Robbie Williams|00
+Unwritten|Natasha Bedingfield|KT Tunstall|Michelle Branch|00
+So What|P!nk|Avril Lavigne|Kelly Clarkson|00
+Viva la Vida|Coldplay|Keane|Snow Patrol|00
+Sin ti no soy nada|Amaral|La Oreja de Van Gogh|Pereza|00
+Moriría por vos|Amaral|La Oreja de Van Gogh|Pereza|00
+20 de enero|La Oreja de Van Gogh|Amaral|Pignoise|00
+Vino tinto|Estopa|Melendi|Chambao|00
+Con la luna llena|Melendi|Estopa|El Canto del Loco|00
+Zapatillas|El Canto del Loco|Pereza|La Oreja de Van Gogh|00
+Estrella polar|Pereza|El Canto del Loco|Amaral|00
+Cuando tú vas|Chenoa|Rosa López|Natalia|00
+Corazón latino|David Bisbal|Alejandro Sanz|Chayanne|00
+Torre de Babel|David Bustamante|David Bisbal|Chenoa|00
+Whenever, Wherever|Shakira|Jennifer Lopez|Christina Aguilera|00
+Jenny from the Block|Jennifer Lopez|Shakira|Beyoncé|00
+Hero|Enrique Iglesias|Ricky Martin|Marc Anthony|00
+Lo que pasó, pasó|Daddy Yankee|Don Omar|Wisin & Yandel|00
+Rakata|Wisin & Yandel|Daddy Yankee|Don Omar|00
+Obsesión|Aventura|Monchy & Alexandra|Xtreme|00
+A Dios le pido|Juanes|Carlos Vives|Fonseca|00
+Rebelde|RBD|Belanova|Reik|00
+Creo en ti|Reik|RBD|Camila|00
+Mientes|Camila|Reik|RBD|00
+Thinking Out Loud|Ed Sheeran|Sam Smith|Passenger|now
+Perfect|Ed Sheeran|John Legend|Sam Smith|now
+All of Me|John Legend|Sam Smith|Ed Sheeran|now
+Stay with Me|Sam Smith|Adele|Lewis Capaldi|now
+Hello|Adele|Sam Smith|Lana Del Rey|now
+Wrecking Ball|Miley Cyrus|Katy Perry|Rihanna|now
+Shake It Off|Taylor Swift|Katy Perry|Ariana Grande|now
+Firework|Katy Perry|Lady Gaga|Rihanna|now
+We Found Love|Rihanna|Calvin Harris|David Guetta|now
+Diamonds|Rihanna|Beyoncé|Ariana Grande|now
+Work|Rihanna|Beyoncé|Drake|now
+Titanium|David Guetta|Calvin Harris|Avicii|now
+Wake Me Up|Avicii|Calvin Harris|Swedish House Mafia|now
+Levels|Avicii|Swedish House Mafia|Martin Garrix|now
+Summer|Calvin Harris|David Guetta|Avicii|now
+This Is What You Came For|Calvin Harris|David Guetta|Martin Garrix|now
+Animals|Martin Garrix|Hardwell|Avicii|now
+Closer|The Chainsmokers|Zedd|Marshmello|now
+Clarity|Zedd|Calvin Harris|Avicii|now
+Lean On|Major Lazer|DJ Snake|Jack Ü|now
+Cheerleader|OMI|Felix Jaehn|Lost Frequencies|now
+Sugar|Maroon 5|OneRepublic|Train|now
+Counting Stars|OneRepublic|Imagine Dragons|Coldplay|now
+Pompeii|Bastille|Imagine Dragons|Of Monsters and Men|now
+Little Talks|Of Monsters and Men|Mumford & Sons|The Lumineers|now
+I Will Wait|Mumford & Sons|The Lumineers|Of Monsters and Men|now
+Ho Hey|The Lumineers|Mumford & Sons|Of Monsters and Men|now
+Take Me to Church|Hozier|Sam Smith|Passenger|now
+Let Her Go|Passenger|Hozier|Ed Sheeran|now
+Riptide|Vance Joy|Passenger|Ed Sheeran|now
+Budapest|George Ezra|Hozier|Passenger|now
+Stressed Out|Twenty One Pilots|Imagine Dragons|Panic! at the Disco|now
+Sunflower|Post Malone|Juice WRLD|Travis Scott|now
+God's Plan|Drake|Post Malone|Travis Scott|now
+SICKO MODE|Travis Scott|Drake|Post Malone|now
+HUMBLE.|Kendrick Lamar|J. Cole|Drake|now
+Thrift Shop|Macklemore & Ryan Lewis|Flo Rida|Pitbull|now
+Gangnam Style|PSY|Rain|BIGBANG|now
+Dynamite|BTS|BLACKPINK|EXO|now
+How You Like That|BLACKPINK|BTS|TWICE|now
+Sorry|Justin Bieber|Shawn Mendes|Ed Sheeran|now
+Stitches|Shawn Mendes|Justin Bieber|Charlie Puth|now
+Attention|Charlie Puth|Shawn Mendes|Justin Bieber|now
+Cake by the Ocean|DNCE|Jonas Brothers|Maroon 5|now
+Sucker|Jonas Brothers|DNCE|Maroon 5|now
+drivers license|Olivia Rodrigo|Billie Eilish|Taylor Swift|now
+Old Town Road|Lil Nas X|Post Malone|Billy Ray Cyrus|now
+Shallow|Lady Gaga|Bradley Cooper|Ariana Grande|now
+Royals|Lorde|Lana Del Rey|Billie Eilish|now
+Video Games|Lana Del Rey|Lorde|Florence + The Machine|now
+Dog Days Are Over|Florence + The Machine|Lana Del Rey|Mumford & Sons|now
+Somebody That I Used to Know|Gotye|Passenger|Ed Sheeran|now
+Call Me Maybe|Carly Rae Jepsen|Katy Perry|Selena Gomez|now
+We Are Young|fun.|Imagine Dragons|Walk the Moon|now
+Can't Stop the Feeling!|Justin Timberlake|Bruno Mars|Pharrell Williams|now
+24K Magic|Bruno Mars|Justin Timberlake|Pharrell Williams|now
+Just the Way You Are|Bruno Mars|John Legend|Jason Mraz|now
+Rude|MAGIC!|Bruno Mars|Maroon 5|now
+Timber|Pitbull|Flo Rida|Kesha|now
+Give Me Everything|Pitbull|Flo Rida|LMFAO|now
+Party Rock Anthem|LMFAO|Black Eyed Peas|Pitbull|now
+Blurred Lines|Robin Thicke|Pharrell Williams|Justin Timberlake|now
+Lose You to Love Me|Selena Gomez|Ariana Grande|Dua Lipa|now
+7 rings|Ariana Grande|Dua Lipa|Selena Gomez|now
+Bang Bang|Jessie J|Ariana Grande|Nicki Minaj|now
+Price Tag|Jessie J|Rita Ora|Ellie Goulding|now
+Burn|Ellie Goulding|Jessie J|Rita Ora|now
+Don't You Worry Child|Swedish House Mafia|Avicii|David Guetta|now
+Faded|Alan Walker|Marshmello|Kygo|now
+Happier|Marshmello|Alan Walker|The Chainsmokers|now
+Mi Gente|J Balvin|Willy William|Maluma|now
+Chantaje|Shakira|Maluma|Nicky Jam|now
+Waka Waka (This Time for Africa)|Shakira|Jennifer Lopez|Beyoncé|now
+Bailando|Enrique Iglesias|Descemer Bueno|Gente de Zona|now
+Súbeme la radio|Enrique Iglesias|Descemer Bueno|Luis Fonsi|now
+Felices los 4|Maluma|J Balvin|Nicky Jam|now
+Taki Taki|DJ Snake|Ozuna|Cardi B|now
+Con Calma|Daddy Yankee|Snow|Don Omar|now
+Sin Pijama|Becky G|Natti Natasha|Karol G|now
+Bichota|Karol G|Becky G|Natti Natasha|now
+Tusa|Karol G|Nicki Minaj|Becky G|now
+Dákiti|Bad Bunny|Jhay Cortez|Rauw Alejandro|now
+Me Porto Bonito|Bad Bunny|Chencho Corleone|Rauw Alejandro|now
+Despechá|Rosalía|C. Tangana|Aitana|now
+Malamente|Rosalía|C. Tangana|Aitana|now
+Ateo|C. Tangana|Rosalía|Bad Gyal|now
+Tú me dejaste de querer|C. Tangana|Rosalía|Aitana|now
+Mayores|Becky G|Karol G|Natti Natasha|now
+Lo Malo|Aitana|Ana Guerra|Lola Índigo|now
+Bzrp Music Sessions, Vol. 52|Quevedo|Bizarrap|Duki|now
+Bzrp Music Sessions, Vol. 53|Shakira|Karol G|Rosalía|now
+Ella Baila Sola|Eslabon Armado|Peso Pluma|Junior H|now
+Solamente tú|Pablo Alborán|Manuel Carrasco|David Bisbal|now
+El Patio|Pablo López|Pablo Alborán|Dani Martín|now
+Un año|Sebastián Yatra|Reik|Morat|now
+Besos en guerra|Morat|Reik|Sebastián Yatra|now
+Vida de rico|Camilo|Sebastián Yatra|Morat|now
+Envolver|Anitta|Karol G|Becky G|now
+El Perdón|Nicky Jam|Enrique Iglesias|Maluma|now
+Baila Baila Baila|Ozuna|Daddy Yankee|Anuel AA|now
+Say So|Doja Cat|Dua Lipa|Ariana Grande|now
+About Damn Time|Lizzo|Doja Cat|Dua Lipa|now
+Espresso|Sabrina Carpenter|Olivia Rodrigo|Chappell Roan|now
+Good Luck, Babe!|Chappell Roan|Sabrina Carpenter|Olivia Rodrigo|now
+BIRDS OF A FEATHER|Billie Eilish|Olivia Rodrigo|Taylor Swift|now
+Beautiful Things|Benson Boone|Lewis Capaldi|Sam Smith|now
+Lose Control|Teddy Swims|Benson Boone|Sam Smith|now
+greedy|Tate McRae|Olivia Rodrigo|Dua Lipa|now
+Water|Tyla|Doja Cat|Rihanna|now
+Calm Down|Rema|Burna Boy|Wizkid|now
+Zitti e buoni|Måneskin|Imagine Dragons|Twenty One Pilots|now
+Heat Waves|Glass Animals|Tame Impala|The Neighbourhood|now
+The Less I Know the Better|Tame Impala|MGMT|Glass Animals|now
+Sweater Weather|The Neighbourhood|Glass Animals|The 1975|now
+Chocolate|The 1975|The Neighbourhood|Arctic Monkeys|now
+Do I Wanna Know?|Arctic Monkeys|The Black Keys|Royal Blood|now
+Lonely Boy|The Black Keys|Royal Blood|Arctic Monkeys|now
+Pumped Up Kicks|Foster the People|MGMT|Cage the Elephant|now
+High Hopes|Panic! at the Disco|Fall Out Boy|Twenty One Pilots|now
+Vivir mi vida|Marc Anthony|Romeo Santos|Prince Royce|now
+Stay|The Kid LAROI|Justin Bieber|Olivia Rodrigo|now
+`;
+(function(){
+  var seen={};
+  SONGS.forEach(function(s){seen[s[0]+'|'+s[1]]=1;});
+  MORE.split('\n').forEach(function(l){
+    l=l.trim();if(!l)return;
+    var a=l.split('|');if(a.length!==5)return;
+    var k=a[0]+'|'+a[1];if(seen[k])return;
+    seen[k]=1;SONGS.push(a);
+  });
+})();
+
+/* ---------- niveles, colores, décadas ---------- */
+var LEVELS={
+  easy:{name:'Fácil',sec:10,base:80},
+  normal:{name:'Normal',sec:6,base:100},
+  hard:{name:'Difícil',sec:3,base:150},
+  expert:{name:'Experto',sec:1.5,base:220}
+};
+var LV_ICO={easy:'<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="#ffd60a" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 20h34" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 19c0 7 5 9 9 9 5 0 6-5 6-8h0c0 3 1 8 6 8 4 0 9-2 9-9z" fill="#0f1233"/><path d="M13 22l3-2.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M14 31c4 8 16 8 20 0" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10.5" cy="31" r="2.6" fill="#ff4d6d" opacity=".7"/><circle cx="37.5" cy="31" r="2.6" fill="#ff4d6d" opacity=".7"/></svg>',normal:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 28v-6a17 17 0 0 1 34 0v6" fill="none" stroke="#0f1233" stroke-width="3.6" stroke-linecap="round"/><path d="M7 28v-6a17 17 0 0 1 34 0v6" fill="none" stroke="#3ac8ff" stroke-width="1.2" stroke-linecap="round"/><rect x="3.5" y="25" width="11" height="18" rx="5" fill="#3ac8ff" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="33.5" y="25" width="11" height="18" rx="5" fill="#3ac8ff" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 30v8M39.5 30v8" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M21 31V15l10-2v14" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18.5" cy="31" r="3.2" fill="#0f1233"/><circle cx="28.5" cy="27" r="3.2" fill="#0f1233"/></svg>',hard:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 2c1 7 6 9 10 15 3 4 5 8 5 13a15 15 0 0 1-30 0c0-6 3-10 6-13 1 3 2 5 4 6 1-7-1-14 5-21z" fill="#ff7a1a" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 17c1 5 8 8 8 15a8 8 0 0 1-16 0c0-4 2-6 4-9 1 2 2 3 3 3 1-3 0-6 1-9z" fill="#ffb703" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 31c1 3 4 4 4 7a4 4 0 0 1-8 0c0-3 3-4 4-7z" fill="#fff6c8" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 12l3 3M42 10l-3 4" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',expert:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3C13.5 3 7 10.5 7 19.5c0 6 3 9.500 6.500 11.5v6.500h21v-6.500c3.500-2 6.500-5.500 6.500-11.500C41 10.500 34.500 3 24 3z" fill="#fff" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 14l9 5M38 14l-9 5" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="17" cy="23.500" rx="4.800" ry="5" fill="#0f1233"/><ellipse cx="31" cy="23.500" rx="4.800" ry="5" fill="#0f1233"/><circle cx="18" cy="22" r="1.400" fill="#ff4d6d"/><circle cx="32" cy="22" r="1.400" fill="#ff4d6d"/><path d="M24 29.500l-2.800 4.500h5.600z" fill="#0f1233"/><path d="M18 44v-6.500M24 44v-6.500M30 44v-6.500" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 30l4-3-1 6zM45 30l-4-3 1 6z" fill="#ffd60a" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'};
+var PCOLORS=['#ff4d6d','#ffd60a','#1fd6a0','#3ac8ff','#ff9f1c','#a78bfa'];
+var ERAS=[
+  {k:'80',icon:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M15 12V7h18v5" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="12" width="40" height="27" rx="5" fill="#ff4d6d" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="15" y="16" width="18" height="9" rx="2" fill="#fff" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="21" cy="20.5" r="2" fill="#0f1233"/><circle cx="27" cy="20.5" r="2" fill="#0f1233"/><circle cx="12" cy="31" r="5.2" fill="#ffd60a" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="31" r="1.5" fill="#0f1233"/><circle cx="36" cy="31" r="5.2" fill="#ffd60a" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36" cy="31" r="1.5" fill="#0f1233"/><path d="M20 31h8" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 8l-2-3M42 8l2-3" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',label:'80s',color:'var(--coral)'},
+  {k:'90',icon:'<svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="cdg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ac8ff"/><stop offset=".35" stop-color="#e8ecff"/><stop offset=".6" stop-color="#1fd6a0"/><stop offset="1" stop-color="#ffd60a"/></linearGradient></defs><circle cx="24" cy="24" r="19" fill="url(#cdg)" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#fff" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="2.2" fill="#0f1233"/><path d="M11 18a14 14 0 0 1 9-8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg>',label:'90s',color:'var(--mint)'},
+  {k:'00',icon:'<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="3" width="28" height="42" rx="6" fill="#f1f1f6" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="7.5" width="20" height="14" rx="2.5" fill="#3ac8ff" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 17l3-4 3 3 3-5 3 6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="33.5" r="8" fill="#fff" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="33.5" r="3" fill="#ffd60a" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',label:'2000s',color:'var(--sky)'},
+  {k:'now',icon:'<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="12" y="2.5" width="24" height="43" rx="6" fill="#fff" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="15.5" y="8" width="17" height="30" rx="2" fill="#a78bfa" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 17v12l10-6z" fill="#ffd60a" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 33h6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M5 14c-2 3-2 8 0 11M43 14c2 3 2 8 0 11" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',label:'2010+',color:'var(--yellow)'}
+];
+
+/* ---------- preferencias y récords ---------- */
+var STORE='quienlacanta.v1',RSTORE='quienlacanta.records.v1';
+var prefs={players:['Jugador 1','Jugador 2'],rounds:5,level:'normal',eras:['all'],mode:'pass',sfx:'on',music:'on'};
+try{var saved=JSON.parse(localStorage.getItem(STORE)||'null');if(saved&&typeof saved==='object'){Object.keys(prefs).forEach(function(k){if(saved[k]!=null)prefs[k]=saved[k];});}}catch(e){}
+if(!Array.isArray(prefs.players)||!prefs.players.length)prefs.players=['Jugador 1','Jugador 2'];
+prefs.players=prefs.players.slice(0,6);
+if(!Array.isArray(prefs.eras)||!prefs.eras.length)prefs.eras=['all'];
+if(!LEVELS[prefs.level])prefs.level='normal';
+prefs.rounds=Math.min(15,Math.max(1,Number(prefs.rounds)||5));
+if(prefs.mode!=='keep')prefs.mode='pass';
+if(prefs.sfx!=='off')prefs.sfx='on';
+if(prefs.music!=='off')prefs.music='on';
+function savePrefs(){try{localStorage.setItem(STORE,JSON.stringify(prefs));}catch(e){}}
+function loadRecords(){try{var r=JSON.parse(localStorage.getItem(RSTORE)||'[]');return Array.isArray(r)?r:[];}catch(e){return [];}}
+function storeRecords(l){try{localStorage.setItem(RSTORE,JSON.stringify(l));}catch(e){}}
+
+/* ---------- utilidades ---------- */
+function $(s,r){return (r||document).querySelector(s);}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function norm(s){return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]/g,'');}
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+function songsFor(eras){return eras.indexOf('all')>-1?SONGS:SONGS.filter(function(s){return eras.indexOf(s[4])>-1;});}
+function fmtSec(n){return String(n).replace('.',',');}
+function initial(n){return (String(n).trim().charAt(0)||'?').toUpperCase();}
+var CHECK='<span class="tick"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.6 2.6L10 3.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+
+/* ---------- iTunes + Deezer ---------- */
+function jsonp(url){
+  return new Promise(function(res,rej){
+    var cb='__it'+Math.random().toString(36).slice(2),s=document.createElement('script');
+    var t=setTimeout(function(){clean();rej(new Error('timeout'));},8000);
+    function clean(){clearTimeout(t);try{delete window[cb];}catch(e){window[cb]=undefined;}if(s.parentNode)s.parentNode.removeChild(s);}
+    window[cb]=function(d){clean();res(d);};
+    s.onerror=function(){clean();rej(new Error('jsonp'));};
+    s.src=url+'&callback='+cb;
+    document.head.appendChild(s);
+  });
+}
+function itunes(term){
+  var url='https://itunes.apple.com/search?media=music&entity=song&limit=15&country=ES&term='+encodeURIComponent(term);
+  return fetch(url).then(function(r){if(!r.ok)throw new Error('http');return r.json();}).catch(function(){return jsonp(url);});
+}
+function deezer(term){
+  return jsonp('https://api.deezer.com/search?limit=15&output=jsonp&q='+encodeURIComponent(term)).then(function(d){
+    return {results:((d&&d.data)||[]).map(function(x){
+      return {trackName:x.title,artistName:(x.artist&&x.artist.name)||'',previewUrl:x.preview,
+              artworkUrl100:(x.album&&(x.album.cover_big||x.album.cover_medium))||''};
+    })};
+  });
+}
+var BAD=/\b(karaoke|tribute|made famous|cover version|instrumental|originally performed|in the style of)\b/i;
+var LOOSE_BAD=/\b(remix|live|acoustic|session|demo)\b/i;
+function pickResult(results,song){
+  var t=norm(song[0].replace(/\(.*?\)/g,'')),a=norm(song[1]);
+  function ok(r,strict){
+    if(!r.previewUrl)return false;
+    var txt=(r.trackName||'')+' '+(r.artistName||'');
+    if(BAD.test(txt))return false;
+    if(strict&&LOOSE_BAD.test(r.trackName||''))return false;
+    return norm(r.artistName||'').indexOf(a)>-1&&norm(r.trackName||'').indexOf(t)>-1;
+  }
+  var i,r;
+  for(i=0;i<results.length;i++){r=results[i];if(ok(r,true))return r;}
+  for(i=0;i<results.length;i++){r=results[i];if(ok(r,false))return r;}
+  return null;
+}
+var cache=new Map();
+async function resolve(song){
+  var key=song[0]+'|'+song[1];
+  if(cache.has(key))return cache.get(key);
+  var term=song[0].replace(/\(.*?\)/g,'').trim()+' '+song[1];
+  var sources=[itunes,deezer],r=null,answered=false;
+  for(var i=0;i<sources.length&&!r;i++){
+    try{
+      var data=await sources[i](term);
+      answered=true;
+      r=pickResult((data&&data.results)||[],song);
+    }catch(e){}
+  }
+  if(!r&&!answered)return 'neterr';
+  var out=r?{title:song[0],artist:song[1],decoys:[song[2],song[3]],era:song[4],
+             preview:r.previewUrl,cover:(r.artworkUrl100||'').replace('100x100','400x400'),start:null}:null;
+  cache.set(key,out);
+  return out;
+}
+
+/* ---------- audio ---------- */
+var audio=new Audio();audio.preload='auto';
+var SILENT='data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=';
+var actx=null;
+function unlockAudio(){
+  try{audio.src=SILENT;var p=audio.play();if(p&&p.catch)p.catch(function(){});}catch(e){}
+  try{if(!actx){var C=window.AudioContext||window.webkitAudioContext;if(C)actx=new C();}if(actx&&actx.resume)actx.resume();}catch(e){}
+}
+function waitFor(m,evt,ms){
+  return new Promise(function(res,rej){
+    if(evt==='loadedmetadata'&&m.readyState>=1)return res();
+    var t=setTimeout(function(){off();rej(new Error('timeout'));},ms);
+    function ok(){off();res();}
+    function ko(){off();rej(new Error('media'));}
+    function off(){clearTimeout(t);m.removeEventListener(evt,ok);m.removeEventListener('error',ko);}
+    m.addEventListener(evt,ok);m.addEventListener('error',ko);
+  });
+}
+function tone(f,t0,d,type,vol){
+  if(!actx||prefs.sfx!=='on')return;
+  try{
+    var o=actx.createOscillator(),gn=actx.createGain(),n=actx.currentTime+t0;
+    o.type=type||'sine';o.frequency.value=f;
+    gn.gain.setValueAtTime(0.0001,n);gn.gain.linearRampToValueAtTime(vol||0.16,n+0.02);gn.gain.exponentialRampToValueAtTime(0.0001,n+d);
+    o.connect(gn);gn.connect(actx.destination);o.start(n);o.stop(n+d+0.05);
+  }catch(e){}
+}
+function sfxWin(){[523.25,659.25,783.99,1046.5].forEach(function(f,i){tone(f,i*0.1,0.3,'triangle',0.18);});}
+function sfxLose(){tone(196,0,0.28,'sawtooth',0.12);tone(155.56,0.24,0.5,'sawtooth',0.12);}
+
+
+/* ---------- música de fondo (melodía original generada con WebAudio) ---------- */
+var BPM=122,STEP=60/BPM/4;
+var LEAD=[
+ 76,0,79,0,81,0,79,76, 0,74,0,76,0,0,0,0,
+ 72,0,74,0,76,0,74,72, 0,69,0,72,0,0,0,0,
+ 77,0,81,0,84,0,81,77, 0,76,0,74,0,0,0,0,
+ 79,0,79,76,0,74,76,0, 79,0,81,0,79,0,0,0];
+var BASS=[48,45,41,43];
+var mus={timer:null,step:0,next:0,gain:null,noise:null};
+function mhz(n){return 440*Math.pow(2,(n-69)/12);}
+function mnote(f,t,d,type,vol){
+  var o=actx.createOscillator(),gn=actx.createGain();
+  o.type=type;o.frequency.value=f;
+  gn.gain.setValueAtTime(0.0001,t);gn.gain.linearRampToValueAtTime(vol,t+0.012);gn.gain.exponentialRampToValueAtTime(0.0001,t+d);
+  o.connect(gn);gn.connect(mus.gain);o.start(t);o.stop(t+d+0.03);
+}
+function mnoise(t,d,vol,hp){
+  if(!mus.noise){var n=actx.sampleRate*0.3,b=actx.createBuffer(1,n,actx.sampleRate),c=b.getChannelData(0);for(var i=0;i<n;i++)c[i]=Math.random()*2-1;mus.noise=b;}
+  var s=actx.createBufferSource(),f=actx.createBiquadFilter(),gn=actx.createGain();
+  s.buffer=mus.noise;f.type='highpass';f.frequency.value=hp;
+  gn.gain.setValueAtTime(vol,t);gn.gain.exponentialRampToValueAtTime(0.0001,t+d);
+  s.connect(f);f.connect(gn);gn.connect(mus.gain);s.start(t);s.stop(t+d+0.02);
+}
+function musicStep(st,t){
+  var bar=Math.floor(st/16),k=st%16,L=LEAD[st];
+  if(L){mnote(mhz(L),t,STEP*2.2,'square',0.07);mnote(mhz(L+12),t,STEP*1.2,'triangle',0.03);}
+  if(k===0||k===3||k===6||k===8||k===11||k===14)mnote(mhz(BASS[bar]),t,STEP*1.8,'triangle',0.2);
+  if(k%4===0){var o=actx.createOscillator(),gn=actx.createGain();o.frequency.setValueAtTime(140,t);o.frequency.exponentialRampToValueAtTime(40,t+0.12);gn.gain.setValueAtTime(0.35,t);gn.gain.exponentialRampToValueAtTime(0.0001,t+0.16);o.connect(gn);gn.connect(mus.gain);o.start(t);o.stop(t+0.2);}
+  if(k===4||k===12)mnoise(t,0.12,0.12,1500);
+  if(k%2===1)mnoise(t,0.04,0.05,7000);
+  if(k%4===2&&bar%2===1)mnote(mhz(L?L-12:[60,57,53,55][bar]),t,STEP*1.5,'sawtooth',0.02);
+}
+function musicTick(){
+  if(!actx||!mus.timer)return;
+  while(mus.next<actx.currentTime+0.3){musicStep(mus.step,mus.next);mus.next+=STEP;mus.step=(mus.step+1)%64;}
+}
+function wantMusic(){
+  return prefs.music==='on'&&!document.hidden&&(!$('#cover').hidden||!$('#setup').hidden);
+}
+function syncMusic(){
+  var want=wantMusic()&&actx&&actx.state!=='closed';
+  if(want&&!mus.timer){
+    try{if(actx.resume)actx.resume();}catch(e){}
+    if(!mus.gain){mus.gain=actx.createGain();mus.gain.connect(actx.destination);}
+    mus.gain.gain.cancelScheduledValues(actx.currentTime);
+    mus.gain.gain.setValueAtTime(0.0001,actx.currentTime);
+    mus.gain.gain.linearRampToValueAtTime(0.5,actx.currentTime+0.6);
+    mus.step=0;mus.next=actx.currentTime+0.08;
+    mus.timer=setInterval(musicTick,70);musicTick();
+  }else if(!want&&mus.timer){
+    clearInterval(mus.timer);mus.timer=null;
+    try{mus.gain.gain.cancelScheduledValues(actx.currentTime);mus.gain.gain.setValueAtTime(mus.gain.gain.value,actx.currentTime);mus.gain.gain.linearRampToValueAtTime(0.0001,actx.currentTime+0.25);}catch(e){}
+  }
+}
+
+/* ---------- disco (etiqueta con rayos, texto que gira y marca central) ---------- */
+function discHTML(n){
+  var id='tp'+n;
+  return '<span class="disc"></span><span class="vlabel"><span class="sun">'
+    +'<svg class="ringtxt" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="'+id+'" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>'
+    +'<text textLength="236" lengthAdjust="spacing"><textPath href="#'+id+'" xlink:href="#'+id+'">¿QUIÉN LA CANTA? ♪ ¿QUIÉN LA CANTA? ♪ </textPath></text></svg></span>'
+    +'<img class="m-cover" alt="">'
+    +'<span class="badge">'
+    +'<svg class="m-play" data-m viewBox="0 0 24 24" aria-hidden="true"><path d="M5 2.5v19L21 12z" fill="#0f1233"/></svg>'
+    +'<span class="m-q" data-m>?</span>'
+    +'<span class="m-eq" data-m><i></i><i></i><i></i><i></i></span>'
+    +'<span class="m-load" data-m></span>'
+    +'</span></span>';
+}
+$('#heroDisc').innerHTML=discHTML(1);
+(function(){var box=$('.stickers');ERAS.forEach(function(E,i){var s=el('span','stk');s.style.setProperty('--c',['var(--coral)','var(--mint)','var(--sky)','var(--yellow)'][i]);s.innerHTML='<span class="si">'+E.icon+'</span>'+(E.k==='now'?'Hoy':E.label);box.appendChild(s);});})();
+$('#vinyl').innerHTML=discHTML(2);
+
+/* ---------- estado ---------- */
+var g=null,clipTimer=null,armed=null,armTimer=null;
+
+/* ---------- pantallas ---------- */
+function show(id){
+  ['cover','setup','game','end','bye'].forEach(function(s){$('#'+s).hidden=(s!==id);});
+  document.body.setAttribute('data-screen',id);
+  window.scrollTo(0,0);
+  syncMusic();
+}
+function quitGame(){
+  clearTimeout(clipTimer);clipTimer=null;
+  try{audio.pause();}catch(e){}
+  g=null;
+}
+
+/* ---------- ajustes ---------- */
+function renderPlayers(){
+  var box=$('#playerList');box.innerHTML='';
+  prefs.players.forEach(function(name,i){
+    var row=el('div','prow');
+    var av=el('span','avatar',initial(name));av.style.background=PCOLORS[i%PCOLORS.length];
+    var inp=document.createElement('input');
+    inp.type='text';inp.maxLength=16;inp.value=name;inp.id='pl'+i;
+    inp.setAttribute('aria-label','Nombre del jugador '+(i+1));inp.placeholder='Jugador '+(i+1);
+    inp.autocomplete='off';
+    inp.addEventListener('input',function(){prefs.players[i]=inp.value;av.textContent=initial(inp.value||('J'));updateSummary();});
+    var rm=el('button','icon-btn','×');rm.type='button';
+    rm.setAttribute('aria-label','Quitar jugador '+(i+1));
+    rm.disabled=prefs.players.length<=1;
+    rm.addEventListener('click',function(){prefs.players.splice(i,1);renderPlayers();updateSummary();});
+    row.appendChild(av);row.appendChild(inp);row.appendChild(rm);box.appendChild(row);
+  });
+  $('#addPlayer').disabled=prefs.players.length>=6;
+}
+function renderLevels(){
+  var box=$('#levelGrid');box.innerHTML='';
+  Object.keys(LEVELS).forEach(function(k,i){
+    var L=LEVELS[k];
+    var b=el('button','tile lvl');b.type='button';b.setAttribute('role','radio');
+    b.setAttribute('aria-checked',String(prefs.level===k));
+    b.innerHTML='<span class="eico">'+LV_ICO[k]+'</span><span class="etx"><b>'+L.name+'</b><span class="big">'+fmtSec(L.sec)+' s</span><small>'+L.base+' pts</small></span>'+CHECK;
+    b.addEventListener('click',function(){prefs.level=k;renderLevels();updateSummary();});
+    box.appendChild(b);
+  });
+}
+function renderEras(){
+  var box=$('#eraGrid');box.innerHTML='';
+  var all=prefs.eras.indexOf('all')>-1;
+  var mix=el('button','tile era mix');mix.type='button';mix.setAttribute('role','checkbox');
+  mix.setAttribute('aria-checked',String(all));
+  mix.innerHTML='<span class="yr">MIX</span><span class="txt"><b>Todas las décadas</b><small>'+SONGS.length+' canciones</small></span>'+CHECK;
+  mix.addEventListener('click',function(){prefs.eras=['all'];renderEras();updateSummary();});
+  box.appendChild(mix);
+  ERAS.forEach(function(E){
+    var on=!all&&prefs.eras.indexOf(E.k)>-1;
+    var b=el('button','tile era');b.type='button';b.setAttribute('role','checkbox');b.setAttribute('aria-checked',String(on));
+    b.style.setProperty('--c',E.color);
+    b.innerHTML='<span class="eico">'+E.icon+'</span><span class="etx"><span class="yr">'+E.label+'</span><small>'+songsFor([E.k]).length+' canciones</small></span>'+CHECK;
+    b.addEventListener('click',function(){
+      var cur=prefs.eras.filter(function(x){return x!=='all';});
+      var i=cur.indexOf(E.k);
+      if(i>-1)cur.splice(i,1);else cur.push(E.k);
+      if(!cur.length||cur.length>=4)cur=['all'];
+      prefs.eras=cur;renderEras();updateSummary();
+    });
+    box.appendChild(b);
+  });
+}
+function renderRounds(){
+  $('#rVal').textContent=String(prefs.rounds);
+  $('#rMinus').disabled=prefs.rounds<=1;
+  $('#rPlus').disabled=prefs.rounds>=15;
+  var n=prefs.players.length*prefs.rounds;
+  $('#rHint').textContent=n+' canciones en total (unos '+Math.max(1,Math.round(n*0.6))+' min)';
+}
+var ICO_PASS='<svg viewBox="0 0 48 48" aria-hidden="true"><g transform="translate(-4 2)"><rect x="16" y="4" width="16" height="25" rx="8" fill="#ff4d6d" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 14h16M16 19h16" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".8"/><path d="M10 22a14 14 0 0 0 28 0" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 36v7M17 44h14" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M34 12h8l-3-3M42 12l-3 3" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M44 28h-8l3-3M36 28l3 3" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+var ICO_KEEP='<svg viewBox="0 0 48 48" aria-hidden="true"><g transform="translate(-4 2)"><rect x="16" y="4" width="16" height="25" rx="8" fill="#ff4d6d" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 14h16M16 19h16" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".8"/><path d="M10 22a14 14 0 0 0 28 0" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 36v7M17 44h14" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M40 6l-5 9h5l-4 9" fill="none" stroke="#0f1233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 6l-5 9h5l-4 9" fill="none" stroke="#ffd60a" stroke-width="1" stroke-linecap="round"/></svg>';
+function renderMode(){
+  var box=$('#modeGrid');box.innerHTML='';
+  [['pass','Pasa el micro','Uno por canción',ICO_PASS],['keep','Micro en mano','Sigue si aciertas',ICO_KEEP]].forEach(function(o){
+    var b=el('button','tile lvl');b.type='button';b.setAttribute('role','radio');b.setAttribute('aria-checked',String(prefs.mode===o[0]));
+    b.innerHTML='<span class="eico">'+o[3]+'</span><span class="etx"><b>'+o[1]+'</b><small>'+o[2]+'</small></span>'+CHECK;
+    b.addEventListener('click',function(){prefs.mode=o[0];renderMode();});
+    box.appendChild(b);
+  });
+}
+function paintSfx(){
+  var on=prefs.sfx==='on';
+  $('#sfxSwitch').setAttribute('aria-checked',String(on));
+  $('#mSfx').setAttribute('aria-checked',String(on));
+  $('#mSfxVal').textContent=on?'Sí':'No';
+  var m=prefs.music==='on';
+  $('#musSwitch').setAttribute('aria-checked',String(m));
+  $('#coverSfx').setAttribute('aria-pressed',String(m));
+}
+function toggleMusic(){unlockAudio();prefs.music=prefs.music==='on'?'off':'on';paintSfx();savePrefs();syncMusic();}
+function toggleSfx(){prefs.sfx=prefs.sfx==='on'?'off':'on';paintSfx();savePrefs();}
+function eraLabel(){
+  if(prefs.eras.indexOf('all')>-1)return 'Mix de todas';
+  return ERAS.filter(function(E){return prefs.eras.indexOf(E.k)>-1;}).map(function(E){return E.label;}).join(' + ');
+}
+function updateSummary(){
+  var n=prefs.players.length,L=LEVELS[prefs.level],avail=songsFor(prefs.eras).length,need=n*prefs.rounds;
+  $('#summary').textContent=n+(n===1?' jugador':' jugadores')+' · '+L.name+' '+fmtSec(L.sec)+' s · '+eraLabel()+' · '+need+' canciones'+(avail<need?' (alguna se repetirá)':'');
+  renderRounds();
+}
+function renderSetup(){renderPlayers();renderLevels();renderEras();renderMode();paintSfx();updateSummary();}
+function readNames(){
+  var names=[],seen={};
+  prefs.players.forEach(function(raw,i){
+    var n=String(raw||'').trim()||('Jugador '+(i+1));
+    var k=n.toLowerCase();
+    if(seen[k]){seen[k]++;n=n+' '+seen[k];}else seen[k]=1;
+    names.push(n);
+  });
+  return names;
+}
+
+/* ---------- partida ---------- */
+function startGame(){
+  unlockAudio();
+  var names=readNames();
+  prefs.players=names.slice();savePrefs();
+  var pool=shuffle(songsFor(prefs.eras));
+  var lvl=LEVELS[prefs.level];
+  clearTimeout(clipTimer);
+  g={
+    players:names.map(function(n){return {name:n,score:0,streak:0,hits:0,plays:0};}),
+    lvl:lvl,clip:lvl.sec,base:lvl.base,keep:prefs.mode==='keep',
+    total:names.length*prefs.rounds,turn:0,cur:0,
+    pool:pool,idx:0,cycle:0,pending:null,current:null,fails:0,
+    replayUsed:false,optionsAt:0,phase:'fetching',menuOpen:false,nextCur:0
+  };
+  closeModals();
+  show('game');
+  startTurn();
+}
+
+async function nextPlayable(game){
+  var errs=0;
+  for(var guard=0;guard<SONGS.length*3;guard++){
+    if(game.idx>=game.pool.length){game.pool=shuffle(game.pool);game.idx=0;game.cycle++;if(game.cycle>3)break;}
+    var song=game.pool[game.idx++];
+    var r=await resolve(song);
+    if(game!==g)return null;
+    if(r==='neterr'){if(++errs>=3)throw new Error('net');continue;}
+    if(r)return r;
+  }
+  throw new Error('nosong');
+}
+
+async function startTurn(){
+  var game=g;
+  clearTimeout(clipTimer);clipTimer=null;try{audio.pause();}catch(e){}
+  var p=game.players[game.cur];
+  $('#playerName').textContent=p.name;
+  var av=$('#whoAvatar');av.textContent=initial(p.name);av.style.background=PCOLORS[game.cur%PCOLORS.length];
+  $('#turnCount').innerHTML='Canción <b>'+(game.turn+1)+'/'+game.total+'</b> · '+fmtSec(game.clip)+' s';
+  renderBoard();
+  resetStage();
+  setPhase('fetching');
+  var song=null;
+  try{
+    if(game.pending){var pend=game.pending;game.pending=null;song=await pend.catch(function(){return null;});}
+    if(game!==g)return;
+    if(!song)song=await nextPlayable(game);
+    if(game!==g||!song)return;
+  }catch(e){
+    if(game!==g)return;
+    setPhase(e&&e.message==='nosong'?'empty':'error');return;
+  }
+  song=Object.assign({},song,{start:null});
+  game.current=song;game.replayUsed=false;
+  buildOptions();
+  setPhase('ready');
+  game.pending=nextPlayable(game).catch(function(){return null;});
+}
+
+function buildOptions(){
+  var s=g.current,box=$('#options');box.innerHTML='';
+  shuffle([s.artist].concat(s.decoys)).forEach(function(n){
+    var b=el('button','opt',n);b.type='button';b.dataset.name=n;
+    b.addEventListener('click',function(){answer(b);});
+    box.appendChild(b);
+  });
+}
+
+function resetStage(){
+  var cv=$('#vinyl .m-cover');cv.removeAttribute('src');
+  $('#vinyl').classList.remove('revealed');
+  $('#options').innerHTML='';
+  resetRing();
+}
+
+function setPhase(p){
+  if(g)g.phase=p;
+  var cvHas=!!$('#vinyl .m-cover').getAttribute('src');
+  var T={
+    fetching:['Buscando una canción…','load'],
+    ready:['Pulsa el disco para escuchar','play'],
+    loading:['Cargando el fragmento…','load'],
+    playing:['Escuchando…','eq'],
+    replaying:['Escuchando otra vez…','eq'],
+    choose:['¿Quién la canta?','q'],
+    result:['',cvHas?'cover':'q'],
+    error:['No consigo conectar con iTunes ni con Deezer.','play'],
+    empty:['No encuentro fragmentos para esta selección. Prueba con otras décadas.','play']
+  };
+  var t=T[p],vin=$('#vinyl');
+  $('#status').textContent=t[0];
+  vin.dataset.mark=t[1];
+  vin.disabled=(p!=='ready');
+  var playing=(p==='playing'||p==='replaying');
+  $('#deck').classList.toggle('spin',playing);
+  $('#deck').classList.toggle('playing',playing);
+  $('#deck').classList.toggle('ready',p==='ready'&&!(g&&g.menuOpen));
+  $('#options').hidden=!(p==='choose'||p==='replaying'||p==='result');
+  $('#replay').hidden=!(p==='choose'&&g&&!g.replayUsed);
+  $('#result').hidden=(p!=='result');
+  $('#retry').hidden=!(p==='error'||p==='empty');
+  $('#errHelp').hidden=(p!=='error');
+  $('#game').classList.toggle('res',p==='result');
+  syncMusic();
+}
+
+/* ---------- reproducción del fragmento ---------- */
+function resetRing(){var r=$('#ringFg');r.style.transition='none';r.style.strokeDashoffset='100';}
+function startRing(sec){
+  var r=$('#ringFg');r.style.transition='none';r.style.strokeDashoffset='100';
+  void r.getBoundingClientRect();
+  r.style.transition='stroke-dashoffset '+sec+'s linear';r.style.strokeDashoffset='0';
+}
+function stopClip(){
+  clearTimeout(clipTimer);clipTimer=null;
+  try{audio.pause();}catch(e){}
+  $('#deck').classList.remove('spin','playing');
+  resetRing();
+}
+async function playClip(first){
+  var game=g,s=game.current;
+  try{
+    if(first){
+      setPhase('loading');
+      if(audio.src!==s.preview){audio.src=s.preview;audio.load();}
+      await waitFor(audio,'loadedmetadata',9000);
+      if(game!==g||game.current!==s)return;
+      if(game.menuOpen){setPhase('ready');return;}
+      if(s.start==null){
+        var dur=isFinite(audio.duration)?audio.duration:30;
+        var max=Math.max(0,Math.min(dur-game.clip-1,16));
+        s.start=max>2?2+Math.random()*(max-2):0;
+      }
+    }else{
+      game.replayUsed=true;setPhase('replaying');
+    }
+    try{audio.currentTime=s.start;}catch(e){}
+    await audio.play();
+    if(game!==g||game.current!==s){audio.pause();return;}
+    if(game.menuOpen){stopClip();setPhase(first?'ready':'choose');return;}
+    if(first)setPhase('playing');
+    game.fails=0;
+    startRing(game.clip);
+    clearTimeout(clipTimer);
+    clipTimer=setTimeout(function(){endClip(game,s);},game.clip*1000);
+  }catch(e){
+    if(game!==g||game.current!==s)return;
+    onPlayFail();
+  }
+}
+function endClip(game,s){
+  if(game!==g||game.current!==s)return;
+  var wasFirst=(game.phase==='playing');
+  try{audio.pause();}catch(e){}
+  $('#deck').classList.remove('spin','playing');resetRing();
+  if(wasFirst)game.optionsAt=performance.now();
+  setPhase('choose');
+}
+function onPlayFail(){
+  var game=g;game.fails++;stopClip();
+  if(game.fails>3){
+    game.fails=0;setPhase('ready');
+    $('#status').textContent='No se pudo reproducir. Pulsa el disco para reintentar.';
+    return;
+  }
+  $('#status').textContent='Esa canción no carga. Probando otra…';
+  setTimeout(function(){if(game===g)startTurn();},900);
+}
+
+/* ---------- respuesta y puntos ---------- */
+function answer(btn){
+  if(!g||(g.phase!=='choose'&&g.phase!=='replaying'))return;
+  stopClip();
+  var s=g.current,p=g.players[g.cur];
+  var ok=(btn.dataset.name===s.artist);
+  var speed=0,streakBonus=0,penalty=0,total=0;
+  p.plays++;
+  if(ok){
+    p.streak++;p.hits++;
+    var elapsed=(performance.now()-g.optionsAt)/1000;
+    speed=Math.max(0,Math.round(50-elapsed*5));
+    streakBonus=Math.min(50,(p.streak-1)*10);
+    penalty=g.replayUsed?25:0;
+    total=Math.max(10,g.base+speed+streakBonus-penalty);
+    p.score+=total;
+  }else{p.streak=0;}
+
+  Array.prototype.forEach.call($('#options').children,function(b){
+    b.disabled=true;
+    if(b.dataset.name===s.artist)b.classList.add('right');
+    else if(b===btn)b.classList.add('wrong');
+    else b.classList.add('dim');
+  });
+
+  var cv=$('#vinyl .m-cover');
+  cv.onerror=function(){cv.removeAttribute('src');if(g&&g.phase==='result')$('#vinyl').dataset.mark='q';};
+  cv.onload=function(){if(g&&g.phase==='result')$('#vinyl').dataset.mark='cover';};
+  if(s.cover){cv.src=s.cover;}
+  $('#vinyl').classList.add('revealed');
+
+  var v=$('#verdict');
+  v.textContent=ok?'¡Bien hecho!':'¡Error!';v.className='verdict '+(ok?'ok':'ko');
+  $('#breakdown').textContent=ok
+    ?(g.base+' acierto'+(speed?' · +'+speed+' rapidez':'')+(streakBonus?' · +'+streakBonus+' racha':'')+(penalty?' · −'+penalty+' repetición':''))
+    :(p.name+' se queda sin puntos en esta canción');
+  var info=$('#songInfo');info.innerHTML='';
+  info.appendChild(el('b',null,s.title));info.appendChild(document.createElement('br'));info.appendChild(el('span',null,s.artist));
+
+  g.nextCur=(ok&&g.keep)?g.cur:(g.cur+1)%g.players.length;
+  var last=(g.turn+1>=g.total),label;
+  if(last)label='Ver resultados';
+  else if(g.nextCur===g.cur)label='Siguiente canción';
+  else label='Le toca a '+g.players[g.nextCur].name;
+  $('#nextBtn').textContent=label;
+
+  g.lastOk=ok;
+  setPhase('result');
+  if(ok){try{var pp=audio.play();if(pp&&pp.catch)pp.catch(function(){});}catch(e){}}
+  countUp($('#points'),total,ok);
+  renderBoard(true);
+  if(ok){sfxWin();confetti();}else sfxLose();
+  try{$('#result').scrollIntoView({behavior:'smooth',block:'nearest'});}catch(e){}
+}
+
+function countUp(node,to,ok){
+  if(!ok){node.textContent='0 pts';return;}
+  var t0=performance.now(),dur=650;
+  (function step(now){
+    var k=Math.min(1,(now-t0)/dur);
+    node.textContent='+'+Math.round(to*(1-Math.pow(1-k,3)))+' pts';
+    if(k<1)requestAnimationFrame(step);
+  })(t0);
+}
+
+function confetti(){
+  var box=$('#confetti'),colors=['#ffd60a','#ff4d6d','#1fd6a0','#2b3df0','#ffffff'];
+  for(var i=0;i<46;i++){
+    var c=document.createElement('i');
+    c.style.left=(Math.random()*100)+'vw';
+    c.style.background=colors[i%colors.length];
+    c.style.setProperty('--dx',((Math.random()-.5)*160)+'px');
+    c.style.setProperty('--rot',(360+Math.random()*540)+'deg');
+    c.style.animationDuration=(1.6+Math.random()*1.4)+'s';
+    c.style.animationDelay=(Math.random()*.35)+'s';
+    box.appendChild(c);
+  }
+  setTimeout(function(){box.innerHTML='';},3600);
+}
+
+function renderBoard(bump){
+  var box=$('#board');box.innerHTML='';
+  g.players.forEach(function(p,i){
+    var c=el('div','chip'+(i===g.cur?' active':'')+(bump&&i===g.cur?' bump':''));
+    var n=el('span','n');var dot=document.createElement('i');dot.style.setProperty('--c',PCOLORS[i%PCOLORS.length]);
+    n.appendChild(dot);n.appendChild(el('span',null,p.name));
+    c.appendChild(n);
+    c.appendChild(el('span','s',String(p.score)));
+    c.appendChild(el('span','k',p.streak>=2?'Racha ×'+p.streak:''));
+    box.appendChild(c);
+    if(i===g.cur){setTimeout(function(){try{c.scrollIntoView({inline:'center',block:'nearest'});}catch(e){}},0);}
+  });
+}
+
+function nextTurn(){
+  if(!g||g.phase!=='result')return;
+  g.turn++;
+  if(g.turn>=g.total){endGame();return;}
+  g.cur=g.nextCur;
+  startTurn();
+}
+
+/* ---------- final y récords ---------- */
+function saveRecords(players,lvl,stamp){
+  var prevBest=0,list=loadRecords();
+  if(list.length)prevBest=list[0].s;
+  players.forEach(function(p){
+    if(p.score>0)list.push({n:p.name,s:p.score,l:lvl.name,d:stamp,h:p.hits,p:p.plays});
+  });
+  list.sort(function(a,b){return b.s-a.s;});
+  list=list.slice(0,10);
+  storeRecords(list);
+  return {list:list,prevBest:prevBest};
+}
+function endGame(){
+  stopClip();
+  var ps=g.players.slice().sort(function(a,b){return b.score-a.score||b.hits-a.hits;});
+  var top=ps[0].score,winners=ps.filter(function(p){return p.score===top;});
+  var w=$('#winner'),sub=$('#endSub');
+  if(g.players.length===1){w.textContent='¡'+ps[0].score+' puntos!';sub.textContent=ps[0].hits+' aciertos de '+ps[0].plays+' canciones';}
+  else if(top===0){w.textContent='Nadie acertó';sub.textContent='Toca revancha con otras canciones';}
+  else if(winners.length===1){w.textContent='¡Gana '+winners[0].name+'!';sub.textContent='con '+top+' puntos';}
+  else{w.textContent='¡Empate!';sub.textContent=winners.map(function(x){return x.name;}).join(' y ')+' con '+top+' puntos';}
+  var stamp=Date.now(),rec=saveRecords(g.players,g.lvl,stamp);
+  $('#newRec').hidden=!(top>0&&rec.prevBest>0&&rec.list[0]&&rec.list[0].d===stamp);
+  var ol=$('#rank');ol.innerHTML='';
+  ps.forEach(function(p,i){
+    var li=document.createElement('li');
+    li.appendChild(el('span','pos',(i+1)+'º'));
+    var nm=el('span','nm',p.name);nm.appendChild(el('small',null,p.hits+' de '+p.plays+' aciertos'));
+    li.appendChild(nm);li.appendChild(el('span','sc',String(p.score)));
+    ol.appendChild(li);
+  });
+  show('end');
+  if(top>0){sfxWin();confetti();}
+}
+var MESES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+function renderRecords(){
+  var list=loadRecords(),ol=$('#recList');ol.innerHTML='';
+  if(!list.length){var li=document.createElement('li');li.style.cssText='display:block;border:0;background:none;padding:0';li.appendChild(el('p','empty','Aún no hay récords. ¡Juega una partida!'));ol.appendChild(li);}
+  list.forEach(function(r,i){
+    var li=document.createElement('li');
+    li.appendChild(el('span','p',(i+1)+'º'));
+    var d=new Date(r.d||Date.now()),w=el('span','w',r.n);
+    w.appendChild(el('small',null,r.l+' · '+r.h+' de '+r.p+' · '+d.getDate()+' '+MESES[d.getMonth()]));
+    li.appendChild(w);li.appendChild(el('span','sc',String(r.s)));
+    ol.appendChild(li);
+  });
+  $('#recClear').hidden=!list.length;
+  $('#recClear').textContent='Borrar récords';
+}
+
+/* ---------- menús y ventanas ---------- */
+function closeModals(){
+  ['menu','how','records','smenu'].forEach(function(id){$('#'+id).hidden=true;});
+  if(g)g.menuOpen=false;
+  disarm();
+}
+function openModal(id){
+  closeModals();
+  $('#'+id).hidden=false;
+  var f=$('#'+id+' .btn, #'+id+' button');if(f)try{f.focus({preventScroll:true});}catch(e){}
+}
+function openMenu(){
+  if(!g)return;
+  g.menuOpen=true;try{audio.pause();}catch(e){}
+  if(g.phase==='playing'){stopClip();setPhase('ready');}
+  else if(g.phase==='replaying'){stopClip();setPhase('choose');}
+  paintSfx();
+  $('#menu').hidden=false;syncMusic();
+  try{$('#mResume').focus({preventScroll:true});}catch(e){}
+}
+function closeMenu(){if(g){g.menuOpen=false;if(g.phase==='result'&&g.lastOk){try{var pp=audio.play();if(pp&&pp.catch)pp.catch(function(){});}catch(e){}}}$('#menu').hidden=true;disarm();syncMusic();}
+function disarm(){
+  clearTimeout(armTimer);
+  if(armed){armed.btn.textContent=armed.text;armed.btn.classList.remove('warn');armed=null;}
+}
+/* Las acciones que pierden la partida piden una segunda pulsación. */
+function confirmable(btn,action){
+  btn.addEventListener('click',function(){
+    if(armed&&armed.btn===btn){disarm();action();return;}
+    disarm();
+    armed={btn:btn,text:btn.textContent};
+    btn.textContent='¿Seguro? Pulsa otra vez';btn.classList.add('warn');
+    armTimer=setTimeout(disarm,3500);
+  });
+}
+function goCover(){closeModals();quitGame();show('cover');}
+function goSetup(){closeModals();quitGame();renderSetup();show('setup');}
+
+function renderHow(){
+  var tb=$('#ptBody');tb.innerHTML='';
+  Object.keys(LEVELS).forEach(function(k){
+    var L=LEVELS[k],tr=document.createElement('tr');
+    [L.name,fmtSec(L.sec)+' s',String(L.base)].forEach(function(t){tr.appendChild(el('td',null,t));});
+    tb.appendChild(tr);
+  });
+}
+
+/* ---------- eventos ---------- */
+$('#playBtn').addEventListener('click',function(){unlockAudio();renderSetup();show('setup');});
+$('#howBtn').addEventListener('click',function(){openModal('how');});
+$('#recBtn').addEventListener('click',function(){renderRecords();openModal('records');});
+$('#coverSfx').addEventListener('click',toggleMusic);
+$('#musSwitch').addEventListener('click',toggleMusic);
+/* los navegadores exigen un toque antes de sonar: la música arranca con el primero */
+function firstTouch(){unlockAudio();syncMusic();['pointerdown','keydown'].forEach(function(ev){document.removeEventListener(ev,firstTouch,true);});}
+['pointerdown','keydown'].forEach(function(ev){document.addEventListener(ev,firstTouch,true);});
+document.addEventListener('visibilitychange',syncMusic);
+$('#setupBack').addEventListener('click',function(){savePrefs();openModal('smenu');});
+function doExit(){
+  closeModals();quitGame();
+  try{window.close();}catch(e){}
+  show('bye');
+}
+$('#exitBtn').addEventListener('click',doExit);
+$('#smExit').addEventListener('click',doExit);
+$('#byeBack').addEventListener('click',function(){show('cover');});
+$('#smBack').addEventListener('click',function(){closeModals();show('cover');});
+$('#smHow').addEventListener('click',function(){openModal('how');});
+$('#smRec').addEventListener('click',function(){renderRecords();openModal('records');});
+$('#addPlayer').addEventListener('click',function(){
+  if(prefs.players.length>=6)return;
+  prefs.players.push('Jugador '+(prefs.players.length+1));renderPlayers();updateSummary();
+  var inp=$('#pl'+(prefs.players.length-1));if(inp){try{inp.focus();inp.select();}catch(e){}}
+});
+$('#rMinus').addEventListener('click',function(){prefs.rounds=Math.max(1,prefs.rounds-1);updateSummary();});
+$('#rPlus').addEventListener('click',function(){prefs.rounds=Math.min(15,prefs.rounds+1);updateSummary();});
+$('#sfxSwitch').addEventListener('click',toggleSfx);
+$('#startBtn').addEventListener('click',startGame);
+
+$('#vinyl').addEventListener('click',function(){if(g&&g.phase==='ready'&&!g.menuOpen)playClip(true);});
+$('#replay').addEventListener('click',function(){if(g&&g.phase==='choose'&&!g.replayUsed)playClip(false);});
+$('#retry').addEventListener('click',function(){if(g)startTurn();});
+$('#nextBtn').addEventListener('click',nextTurn);
+$('#againBtn').addEventListener('click',function(){startGame();});
+$('#endSetupBtn').addEventListener('click',goSetup);
+$('#endHomeBtn').addEventListener('click',goCover);
+
+$('#menuBtn').addEventListener('click',openMenu);
+$('#mResume').addEventListener('click',closeMenu);
+confirmable($('#mRestart'),function(){startGame();});
+confirmable($('#mSettings'),goSetup);
+confirmable($('#mHome'),goCover);
+$('#mSfx').addEventListener('click',toggleSfx);
+
+confirmable($('#recClear'),function(){storeRecords([]);renderRecords();});
+['menu','how','records','smenu'].forEach(function(id){
+  var m=$('#'+id);
+  m.addEventListener('click',function(e){if(e.target===m){if(id==='menu')closeMenu();else closeModals();}});
+});
+Array.prototype.forEach.call(document.querySelectorAll('[data-close]'),function(b){b.addEventListener('click',closeModals);});
+document.addEventListener('keydown',function(e){
+  if(e.key!=='Escape')return;
+  if(!$('#menu').hidden)closeMenu();
+  else if(!$('#how').hidden||!$('#records').hidden||!$('#smenu').hidden)closeModals();
+});
+
+/* ---------- arranque ---------- */
+$('#songCount').textContent='Más de '+(Math.floor(SONGS.length/50)*50)+' canciones · de los 80 hasta hoy';
+renderHow();renderSetup();paintSfx();
+resolve(SONGS[Math.floor(Math.random()*SONGS.length)]).then(function(r){if(r==='neterr')$('#connWarn').hidden=false;});
+})();
+</script>
+</body>
+</html>
